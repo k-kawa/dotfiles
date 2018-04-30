@@ -11,12 +11,12 @@
   * [Install plugins](#install-plugins)
     * [Markdown](#markdown)
     * [YAML](#yaml)
+    * [NERDTree](#nerdtree)
     * [Auto complete (Deoplete)](#auto-complete-deoplete)
     * [Golang](#golang)
     * [Initialize vim-plug](#initialize-vim-plug)
   * [Variables](#variables)
   * [Keymaps](#keymaps)
-    * [leader](#leader)
     * [Common](#common)
     * [Golang](#golang-1)
 
@@ -106,6 +106,14 @@ Plugin to edit YAML files.
 Plug 'stephpy/vim-yaml'
 ```
 
+#### NERDTree
+
+https://github.com/scrooloose/nerdtree
+
+```vim
+Plug 'scrooloose/nerdtree'
+```
+
 #### Auto complete (Deoplete)
 I love Deoplete!!
 
@@ -139,16 +147,6 @@ https://github.com/zchee/deoplete-go
 ```vim
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 ```
-
-
-
-
-
-
-
-
-
-
 
 #### Initialize vim-plug
 
@@ -210,18 +208,19 @@ set nofoldenable
 
 ### Keymaps
 
-#### leader
+#### Common
 
-Assign `Space` key to the `mapleader` key.
+Assign `Space` key to the `leader` key.
 
 ```vim
 let mapleader = "\<Space>"
 ```
 
+Toggle NERDTree with `F8`.
 
-#### Common
-
-
+```vim
+nmap <leader><F8> :NERDTreeToggle<CR>
+```
 
 #### Golang
 

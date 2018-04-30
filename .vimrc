@@ -3,6 +3,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'stephpy/vim-yaml'
+Plug 'scrooloose/nerdtree'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -24,6 +25,7 @@ set wildmenu
 set wildmode=list:longest,full
 set nofoldenable
 let mapleader = "\<Space>"
+nmap <leader><F8> :NERDTreeToggle<CR>
 augroup go_augroup
   autocmd!
   autocmd FileType go set noexpandtab
