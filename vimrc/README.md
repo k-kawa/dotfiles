@@ -1,5 +1,27 @@
 # .vimrc
 
+<!-- vim-markdown-toc GFM -->
+
+* [What's this?](#whats-this)
+* [Prerequisite](#prerequisite)
+  * [Vim 8](#vim-8)
+  * [vim-plug](#vim-plug)
+  * [Python 3.5 and neovim](#python-35-and-neovim)
+* [Configurations](#configurations)
+  * [Install plugins](#install-plugins)
+    * [Markdown](#markdown)
+    * [YAML](#yaml)
+    * [Auto complete (Deoplete)](#auto-complete-deoplete)
+    * [Golang](#golang)
+    * [Initialize vim-plug](#initialize-vim-plug)
+  * [Variables](#variables)
+  * [Keymaps](#keymaps)
+    * [leader](#leader)
+    * [Common](#common)
+    * [Golang](#golang-1)
+
+<!-- vim-markdown-toc -->
+
 ## What's this?
 
 This file is the source of my .vimrc file.
