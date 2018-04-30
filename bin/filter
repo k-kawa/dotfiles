@@ -1,0 +1,28 @@
+#! /bin/bash
+
+FENCED_CODE_FILETYPE="$1"
+INPUT_FILE="$2"
+
+cat << 'EOF' |  sed s/FENCED_CODE_FILETYPE/${FENCED_CODE_FILETYPE}/g > /tmp/awk-script
+BEGIN {
+  in_fenced_code = 0
+}
+
+/^```$/ {
+  in_fenced_code = 0
+}
+
+{
+  if (in_fenced_code == 1) {
+    print
+  }
+}
+
+/^```FENCED_CODE_FILETYPE$/ {
+  in_fenced_code = 1
+}
+EOF
+
+# cat /tmp/awk-script
+
+awk -f /tmp/awk-script "${INPUT_FILE}"
