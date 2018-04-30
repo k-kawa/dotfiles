@@ -29,6 +29,10 @@ set wildmenu
 set wildmode=list:longest,full
 let mapleader = "\<Space>"
 nmap <F8> :NERDTreeToggle<CR>
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
 augroup md_augroup
   autocmd!
   " Disable folding.

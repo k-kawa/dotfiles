@@ -244,6 +244,22 @@ Toggle NERDTree with `F8`.
 nmap <F8> :NERDTreeToggle<CR>
 ```
 
+Highlight matched texts.
+```vim
+set hlsearch
+```
+
+Activate incremental search.
+```vim
+set incsearch
+```
+
+Ignore the difference of cases until I use both lower/upper case characters in search.
+```vim
+set ignorecase
+set smartcase
+```
+
 ### Markdown
 
 
