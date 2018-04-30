@@ -1,5 +1,11 @@
 # .tmux.conf
 
+<!-- vim-markdown-toc GFM -->
+
+* [Configurations](#configurations)
+
+<!-- vim-markdown-toc -->
+
 ## Configurations
 
 Cancel keybindings for C-b, the default.
