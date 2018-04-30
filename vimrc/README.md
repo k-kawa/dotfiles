@@ -267,6 +267,12 @@ nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>
 ```
 
+Disable swp file
+
+```vim
+set noswapfile
+```
+
 ### Markdown
 
 

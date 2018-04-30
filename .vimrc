@@ -35,6 +35,7 @@ set ignorecase
 set smartcase
 nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>
+set noswapfile
 augroup md_augroup
   autocmd!
   " Disable folding.
