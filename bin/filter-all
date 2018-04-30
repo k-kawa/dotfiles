@@ -1,6 +1,6 @@
 #! /bin/bash
 
-bin/filter vim vimrc/README.md > $(cat vimrc/README.md | grep '#' | head -n 1 | awk '{print $2}')
+bin/filter vim vimrc/README.md      > $(cat vimrc/README.md     | grep '#' | head -n 1 | awk '{print $2}')
 bin/filter tmux tmux.conf/README.md > $(cat tmux.conf/README.md | grep '#' | head -n 1 | awk '{print $2}')
-
+bin/filter ini gitconfig/README.md  > $(cat gitconfig/README.md   | grep '#' | head -n 1 | awk '{print $2}')
 
