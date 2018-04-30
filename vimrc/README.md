@@ -260,6 +260,13 @@ set ignorecase
 set smartcase
 ```
 
+Switch buffers with `<TAB>`
+
+```vim
+nnoremap <Tab> :bn<CR>
+nnoremap <S-Tab> :bp<CR>
+```
+
 ### Markdown
 
 
