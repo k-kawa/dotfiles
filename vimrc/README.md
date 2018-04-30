@@ -7,18 +7,20 @@
   * [Vim 8](#vim-8)
   * [vim-plug](#vim-plug)
   * [Python 3.5 and neovim](#python-35-and-neovim)
+* [Plugins](#plugins)
+  * [Markdown](#markdown)
+    * [Config](#config)
+  * [YAML](#yaml)
+  * [NERDTree](#nerdtree)
+  * [Auto complete (Deoplete)](#auto-complete-deoplete)
+  * [Golang](#golang)
+  * [Ruby](#ruby)
+  * [Initialize vim-plug](#initialize-vim-plug)
 * [Configurations](#configurations)
-  * [Install plugins](#install-plugins)
-    * [Markdown](#markdown)
-    * [YAML](#yaml)
-    * [NERDTree](#nerdtree)
-    * [Auto complete (Deoplete)](#auto-complete-deoplete)
-    * [Golang](#golang)
-    * [Initialize vim-plug](#initialize-vim-plug)
-  * [Variables](#variables)
-  * [Keymaps](#keymaps)
-    * [Common](#common)
-    * [Golang](#golang-1)
+  * [Common](#common)
+* [Keymaps](#keymaps)
+  * [Common](#common-1)
+  * [Golang](#golang-1)
 
 <!-- vim-markdown-toc -->
 
@@ -70,10 +72,7 @@ sudo pip3 install neovim
 I tried to use Python installed by `pyenv` at first but gave up after several minutes struggling.
 I uses the default system Python now.
 
-## Configurations
-
-
-### Install plugins
+## Plugins
 
 Let vim-plug install the plugins in `~/.vim/plugged`.
 
@@ -82,7 +81,7 @@ Let vim-plug install the plugins in `~/.vim/plugged`.
 call plug#begin('~/.vim/plugged')
 ```
 
-#### Markdown
+### Markdown
 
 Plugins to edit Markdown.
 https://github.com/plasticboy/vim-markdown
@@ -99,14 +98,28 @@ https://github.com/mzlogin/vim-markdown-toc
 Plug 'mzlogin/vim-markdown-toc'
 ```
 
-#### YAML
+#### Config
+
+Enable TOC window auto-fit.
+
+```vim
+let g:vim_markdown_toc_autofit = 1
+```
+
+Follow named anchors.
+
+```vim
+let g:vim_markdown_follow_anchor = 1
+```
+
+### YAML
 Plugin to edit YAML files.
 
 ```vim
 Plug 'stephpy/vim-yaml'
 ```
 
-#### NERDTree
+### NERDTree
 
 https://github.com/scrooloose/nerdtree
 
@@ -114,7 +127,7 @@ https://github.com/scrooloose/nerdtree
 Plug 'scrooloose/nerdtree'
 ```
 
-#### Auto complete (Deoplete)
+### Auto complete (Deoplete)
 I love Deoplete!!
 
 ```vim
@@ -129,7 +142,7 @@ endif
 let g:deoplete#enable_at_startup = 1
 ```
 
-#### Golang
+### Golang
 
 Plugins to edit golang.
 
@@ -148,7 +161,25 @@ https://github.com/zchee/deoplete-go
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 ```
 
-#### Initialize vim-plug
+### Ruby
+
+Plugins to edit ruby.
+
+`vim-ruby`'s document is here. https://github.com/vim-ruby/vim-ruby/wiki 
+
+```vim
+Plug 'vim-ruby/vim-ruby'
+```
+
+deoplete's plugin for Ruby.
+https://github.com/fishbullet/deoplete-ruby
+
+```vim
+Plug 'fishbullet/deoplete-ruby'
+```
+
+
+### Initialize vim-plug
 
 Let vim-plug initialzie itself with the plugins above.
 
@@ -159,7 +190,9 @@ call plug#end()
 Now that I can install/update the plugins with `:PluginInstall` command.
 
 
-### Variables
+## Configurations 
+
+### Common
 
 Use spaces instead of tab.
 
@@ -206,9 +239,12 @@ Disable folding.
 set nofoldenable
 ```
 
-### Keymaps
 
-#### Common
+
+
+## Keymaps
+
+### Common
 
 Assign `Space` key to the `leader` key.
 
@@ -219,10 +255,10 @@ let mapleader = "\<Space>"
 Toggle NERDTree with `F8`.
 
 ```vim
-nmap <leader><F8> :NERDTreeToggle<CR>
+nmap <F8> :NERDTreeToggle<CR>
 ```
 
-#### Golang
+### Golang
 
 ```vim
 augroup go_augroup

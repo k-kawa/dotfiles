@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
+let g:vim_markdown_toc_autofit = 1
 Plug 'stephpy/vim-yaml'
 Plug 'scrooloose/nerdtree'
 if has('nvim')
@@ -15,6 +16,8 @@ endif
 let g:deoplete#enable_at_startup = 1
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'vim-ruby/vim-ruby'
+Plug 'fishbullet/deoplete-ruby'
 call plug#end()
 set expandtab
 set tabstop=2
@@ -25,7 +28,7 @@ set wildmenu
 set wildmode=list:longest,full
 set nofoldenable
 let mapleader = "\<Space>"
-nmap <leader><F8> :NERDTreeToggle<CR>
+nmap <F8> :NERDTreeToggle<CR>
 augroup go_augroup
   autocmd!
   autocmd FileType go set noexpandtab
