@@ -3,6 +3,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
 let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_follow_anchor = 1
 Plug 'stephpy/vim-yaml'
 Plug 'scrooloose/nerdtree'
 if has('nvim')
@@ -26,11 +27,16 @@ set number
 set autowrite
 set wildmenu
 set wildmode=list:longest,full
-set nofoldenable
 let mapleader = "\<Space>"
 nmap <F8> :NERDTreeToggle<CR>
+augroup md_augroup
+  autocmd!
+  " Disable folding.
+  autocmd FileType markdown set nofoldenable
+augroup END
 augroup go_augroup
   autocmd!
+  " Use tab
   autocmd FileType go set noexpandtab
   autocmd FileType go nmap <leader>b  <Plug>(go-build)
   autocmd FileType go nmap <leader>r  <Plug>(go-run)

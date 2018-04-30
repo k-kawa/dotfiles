@@ -16,10 +16,9 @@
   * [Golang](#golang)
   * [Ruby](#ruby)
   * [Initialize vim-plug](#initialize-vim-plug)
-* [Configurations](#configurations)
-  * [Common](#common)
-* [Keymaps](#keymaps)
-  * [Common](#common-1)
+* [Look and feel](#look-and-feel)
+  * [General](#general)
+  * [Markdown](#markdown-1)
   * [Golang](#golang-1)
 
 <!-- vim-markdown-toc -->
@@ -190,9 +189,9 @@ call plug#end()
 Now that I can install/update the plugins with `:PluginInstall` command.
 
 
-## Configurations 
+## Look and feel
 
-### Common
+### General
 
 Use spaces instead of tab.
 
@@ -233,19 +232,6 @@ set wildmenu
 set wildmode=list:longest,full
 ```
 
-Disable folding.
-
-```vim
-set nofoldenable
-```
-
-
-
-
-## Keymaps
-
-### Common
-
 Assign `Space` key to the `leader` key.
 
 ```vim
@@ -258,11 +244,24 @@ Toggle NERDTree with `F8`.
 nmap <F8> :NERDTreeToggle<CR>
 ```
 
+### Markdown
+
+
+```vim
+augroup md_augroup
+  autocmd!
+  " Disable folding.
+  autocmd FileType markdown set nofoldenable
+augroup END
+```
+
+
 ### Golang
 
 ```vim
 augroup go_augroup
   autocmd!
+  " Use tab
   autocmd FileType go set noexpandtab
   autocmd FileType go nmap <leader>b  <Plug>(go-build)
   autocmd FileType go nmap <leader>r  <Plug>(go-run)
