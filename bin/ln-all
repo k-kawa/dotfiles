@@ -1,7 +1,13 @@
 #! /bin/bash
+function mkdir_and_ln() {
+   local dn=$(dirname "$2")
+   mkdir -p "$dn"
 
-ln -sf ~/dotfiles/.vimrc ~/.vimrc
-ln -sf ~/dotfiles/.tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
-ln -sf ~/dotfiles/.zshrc.local ~/.zshrc.local
+   ln -sf "$1" "$2"
+}
 
+mkdir_and_ln ~/dotfiles/.vimrc ~/.vimrc
+mkdir_and_ln ~/dotfiles/.tmux.conf ~/.tmux.conf
+mkdir_and_ln ~/dotfiles/.gitconfig ~/.gitconfig
+mkdir_and_ln ~/dotfiles/.zshrc.local ~/.zshrc.local
+mkdir_and_ln ~/dotfiles/.config/git/ignore ~/.config/git/ignore 
