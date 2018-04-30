@@ -28,6 +28,6 @@ Run the following commands.
 
 - Use `:GenTocGFM` to make the TOC part.
 - Use `:UpdateToc` to update it.
-
+- List of available languages in fenced block is here. https://github.com/github/linguist/blob/master/lib/linguist/languages.yml
 
 
