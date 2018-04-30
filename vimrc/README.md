@@ -20,6 +20,8 @@
   * [General](#general)
   * [Markdown](#markdown-1)
   * [Golang](#golang-1)
+* [Tips](#tips)
+  * [Keybindings](#keybindings)
 
 <!-- vim-markdown-toc -->
 
@@ -302,4 +304,9 @@ augroup END
 
 
 
+## Tips
+Links in this section might include pages in Japanese.
 
+### Keybindings
+- http://vim-jp.org/vimdoc-ja/map.html
+- https://cocopon.me/blog/2013/10/vim-map-noremap/
