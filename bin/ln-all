@@ -11,3 +11,4 @@ mkdir_and_ln ~/dotfiles/.tmux.conf ~/.tmux.conf
 mkdir_and_ln ~/dotfiles/.gitconfig ~/.gitconfig
 mkdir_and_ln ~/dotfiles/.zshrc.local ~/.zshrc.local
 mkdir_and_ln ~/dotfiles/.config/git/ignore ~/.config/git/ignore 
+mkdir_and_ln ~/dotfiles/.Xmodmap ~/.Xmodmap
