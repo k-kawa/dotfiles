@@ -24,6 +24,7 @@
   * [Golang](#golang-1)
 * [Tips](#tips)
   * [Keybindings](#keybindings)
+  * [How to check the filetype of the opened file.](#how-to-check-the-filetype-of-the-opened-file)
 
 <!-- vim-markdown-toc -->
 
@@ -339,3 +340,9 @@ Links in this section might include pages in Japanese.
 ### Keybindings
 - http://vim-jp.org/vimdoc-ja/map.html
 - https://cocopon.me/blog/2013/10/vim-map-noremap/
+
+### How to check the filetype of the opened file.
+```
+verbose set filetype?
+```
+
