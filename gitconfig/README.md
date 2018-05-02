@@ -7,10 +7,19 @@ Use `vim` to edit commit logs.
   editor = vim
 ```
 
-user.name is `Kohei Kawasaki`
+My `user.name` is `Kohei Kawasaki`
 
 ```ini
 [user]
   name = Kohei Kawasaki
+```
+
+Use `vimdiff` to show diff and merge conflicts.
+
+```ini
+[diff]
+  tool = vimdiff
+[merge]
+  tool = vimdiff
 ```
 
