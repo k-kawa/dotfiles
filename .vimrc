@@ -2,8 +2,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'
-let g:vim_markdown_toc_autofit = 1
-let g:vim_markdown_follow_anchor = 1
 Plug 'stephpy/vim-yaml'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf'
@@ -38,11 +36,17 @@ set smartcase
 nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>
 set noswapfile
+augroup fzf_augroup
+  autocmd!
+  noremap e :GFiles<CR>
+augroup END
 augroup md_augroup
   autocmd!
   " Disable folding.
   autocmd FileType markdown set nofoldenable
 augroup END
+let g:vim_markdown_toc_autofit = 1
+let g:vim_markdown_follow_anchor = 1
 augroup go_augroup
   autocmd!
   " Use tab

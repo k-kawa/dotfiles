@@ -10,7 +10,6 @@
   * [fzf](#fzf)
 * [Plugins](#plugins)
   * [Markdown](#markdown)
-    * [Config](#config)
   * [YAML](#yaml)
   * [NERDTree](#nerdtree)
   * [fzf](#fzf-1)
@@ -20,6 +19,7 @@
   * [Initialize vim-plug](#initialize-vim-plug)
 * [Look and feel](#look-and-feel)
   * [General](#general)
+  * [Fzf](#fzf-2)
   * [Markdown](#markdown-1)
   * [Golang](#golang-1)
 * [Tips](#tips)
@@ -112,19 +112,6 @@ https://github.com/mzlogin/vim-markdown-toc
 Plug 'mzlogin/vim-markdown-toc'
 ```
 
-#### Config
-
-Enable TOC window auto-fit.
-
-```vim
-let g:vim_markdown_toc_autofit = 1
-```
-
-Follow named anchors.
-
-```vim
-let g:vim_markdown_follow_anchor = 1
-```
 
 ### YAML
 Plugin to edit YAML files.
@@ -296,9 +283,18 @@ Disable swp file
 ```vim
 set noswapfile
 ```
+### Fzf
+
+Run `GFiles` with `e`.
+
+```vim
+augroup fzf_augroup
+  autocmd!
+  noremap e :GFiles<CR>
+augroup END
+```
 
 ### Markdown
-
 
 ```vim
 augroup md_augroup
@@ -308,6 +304,17 @@ augroup md_augroup
 augroup END
 ```
 
+Enable TOC window auto-fit.
+
+```vim
+let g:vim_markdown_toc_autofit = 1
+```
+
+Follow named anchors.
+
+```vim
+let g:vim_markdown_follow_anchor = 1
+```
 
 ### Golang
 
