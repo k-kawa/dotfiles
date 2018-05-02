@@ -36,6 +36,12 @@ export PATH=$PATH:/usr/local/go/bin:$HOME/r/bin
 export GOPATH=$HOME/r
 ```
 
+## Vim
+```zsh
+alias v='vim $(fzf)'
+alias cdg='cd "${GOPATH}/src"/$(find ${GOPATH}/src -maxdepth 3 -mindepth 3 -type d | sed -re "s/^.*?\/(.*\/.*\/.*)$/\1/g" | fzf)'
+```
+
 ## Misc
 
 Deactivate screen lock (C-s)
