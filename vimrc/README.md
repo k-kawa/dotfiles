@@ -8,6 +8,7 @@
   * [vim-plug](#vim-plug)
   * [Python 3.5 and neovim](#python-35-and-neovim)
   * [fzf](#fzf)
+* [General](#general)
 * [Plugins](#plugins)
   * [Markdown](#markdown)
   * [YAML](#yaml)
@@ -18,7 +19,6 @@
   * [Ruby](#ruby)
   * [Initialize vim-plug](#initialize-vim-plug)
 * [Look and feel](#look-and-feel)
-  * [General](#general)
   * [Fzf](#fzf-2)
   * [Markdown](#markdown-1)
   * [Golang](#golang-1)
@@ -87,123 +87,7 @@ go get github.com/junegunn/fzf
 ```
 
 
-## Plugins
-
-Let vim-plug install the plugins in `~/.vim/plugged`.
-
-
-```vim
-call plug#begin('~/.vim/plugged')
-```
-
-### Markdown
-
-Plugins to edit Markdown.
-https://github.com/plasticboy/vim-markdown
-
-```vim
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-```
-
-Plugin to generate TOC of a markdown file.
-https://github.com/mzlogin/vim-markdown-toc
-
-```vim
-Plug 'mzlogin/vim-markdown-toc'
-```
-
-
-### YAML
-Plugin to edit YAML files.
-
-```vim
-Plug 'stephpy/vim-yaml'
-```
-
-### NERDTree
-
-https://github.com/scrooloose/nerdtree
-
-```vim
-Plug 'scrooloose/nerdtree'
-```
-
-### fzf
-
-https://github.com/junegunn/fzf.vim
-
-```vim
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-```
-
-### Deoplete (Auto complete)
-I love Deoplete!!
-
-```vim
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-let g:deoplete#enable_at_startup = 1
-```
-
-### Golang
-
-Plugins to edit golang.
-
-`vim-go` integrates vim with Golang toolkits such as gofmt, errcheck etc.
-
-```vim
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-```
-
-`vim-go`'s tutorial in Japanese is here. https://github.com/hnakamur/vim-go-tutorial-ja
-
-deoplete's plugin for Golang.
-https://github.com/zchee/deoplete-go
-
-```vim
-Plug 'zchee/deoplete-go', { 'do': 'make'}
-```
-
-### Ruby
-
-Plugins to edit ruby.
-
-`vim-ruby`'s document is here. https://github.com/vim-ruby/vim-ruby/wiki 
-
-```vim
-Plug 'vim-ruby/vim-ruby'
-```
-
-deoplete's plugin for Ruby.
-https://github.com/fishbullet/deoplete-ruby
-
-```vim
-Plug 'fishbullet/deoplete-ruby'
-```
-
-
-### Initialize vim-plug
-
-Let vim-plug initialzie itself with the plugins above.
-
-```vim
-call plug#end()
-```
-
-Now that I can install/update the plugins with `:PluginInstall` command.
-
-
-## Look and feel
-
-### General
+## General
 
 Use spaces instead of tab.
 
@@ -284,6 +168,145 @@ Disable swp file
 ```vim
 set noswapfile
 ```
+## Plugins
+
+Let vim-plug install the plugins in `~/.vim/plugged`.
+
+
+```vim
+call plug#begin('~/.vim/plugged')
+```
+
+### Markdown
+
+Plugins to edit Markdown.
+https://github.com/plasticboy/vim-markdown
+
+```vim
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+```
+
+Plugin to generate TOC of a markdown file.
+https://github.com/mzlogin/vim-markdown-toc
+
+```vim
+Plug 'mzlogin/vim-markdown-toc'
+```
+
+
+### YAML
+Plugin to edit YAML files.
+
+```vim
+Plug 'stephpy/vim-yaml'
+```
+
+### NERDTree
+
+https://github.com/scrooloose/nerdtree
+
+```vim
+Plug 'scrooloose/nerdtree'
+```
+
+### fzf
+
+- https://github.com/junegunn/fzf/blob/master/README-VIM.md
+- https://github.com/junegunn/fzf.vim
+
+```vim
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+```
+
+### Deoplete (Auto complete)
+I love Deoplete!!
+
+```vim
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+let g:deoplete#enable_at_startup = 1
+```
+
+### Golang
+
+Plugins to edit golang.
+
+`vim-go` integrates vim with Golang toolkits such as gofmt, errcheck etc.
+
+```vim
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+```
+
+`vim-go`'s tutorial in Japanese is here. https://github.com/hnakamur/vim-go-tutorial-ja
+
+deoplete's plugin for Golang.
+https://github.com/zchee/deoplete-go
+
+```vim
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+```
+
+### Ruby
+
+Plugins to edit Ruby.
+
+`vim-ruby`'s document is here. https://github.com/vim-ruby/vim-ruby/wiki 
+
+```vim
+Plug 'vim-ruby/vim-ruby'
+```
+
+deoplete's plugin for Ruby.
+https://github.com/fishbullet/deoplete-ruby
+
+```vim
+Plug 'fishbullet/deoplete-ruby'
+```
+
+Plugin to run rspec via vim.
+https://github.com/thoughtbot/vim-rspec
+
+```vim
+Plug 'thoughtbot/vim-rspec'
+```
+
+```vim
+augroup rb_augroup
+  autocmd!
+  autocmd FileType ruby nmap <Leader>t :call RunAllSpecs()<CR>
+  autocmd FileType ruby nmap <Leader>tt :call RunCurrentSpecFile()<CR>
+  autocmd FileType ruby nmap <Leader>tl :call RunLastSpec()<CR>
+  autocmd FileType ruby nmap <Leader>tn :call RunNearestSpec()<CR>
+augroup END
+
+```
+
+Plugin for Rails projects.
+
+```vim
+Plug 'tpope/vim-rails'
+```
+### Initialize vim-plug
+
+Let vim-plug initialzie itself with the plugins above.
+
+```vim
+call plug#end()
+```
+
+Now that I can install/update the plugins with `:PluginInstall` command.
+
+
+## Look and feel
+
 ### Fzf
 
 Run `Files` with `e`.

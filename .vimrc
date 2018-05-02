@@ -1,3 +1,19 @@
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set number
+set autowrite
+set wildmenu
+set wildmode=list:longest,full
+let mapleader = "\<Space>"
+nmap <F8> :NERDTreeToggle<CR>
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+nnoremap <Tab> :bn<CR>
+nnoremap <S-Tab> :bp<CR>
+set noswapfile
 call plug#begin('~/.vim/plugged')
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
@@ -19,23 +35,17 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'vim-ruby/vim-ruby'
 Plug 'fishbullet/deoplete-ruby'
+Plug 'thoughtbot/vim-rspec'
+augroup rb_augroup
+  autocmd!
+  autocmd FileType ruby nmap <Leader>t :call RunAllSpecs()<CR>
+  autocmd FileType ruby nmap <Leader>tt :call RunCurrentSpecFile()<CR>
+  autocmd FileType ruby nmap <Leader>tl :call RunLastSpec()<CR>
+  autocmd FileType ruby nmap <Leader>tn :call RunNearestSpec()<CR>
+augroup END
+
+Plug 'tpope/vim-rails'
 call plug#end()
-set expandtab
-set tabstop=2
-set shiftwidth=2
-set number
-set autowrite
-set wildmenu
-set wildmode=list:longest,full
-let mapleader = "\<Space>"
-nmap <F8> :NERDTreeToggle<CR>
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-nnoremap <Tab> :bn<CR>
-nnoremap <S-Tab> :bp<CR>
-set noswapfile
 augroup fzf_augroup
   autocmd!
   noremap e :Files<CR>
