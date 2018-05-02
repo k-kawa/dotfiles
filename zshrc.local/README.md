@@ -40,6 +40,7 @@ export GOPATH=$HOME/r
 ```zsh
 alias v='vim $(fzf)'
 alias cdg='cd "${GOPATH}/src"/$(find ${GOPATH}/src -maxdepth 3 -mindepth 3 -type d | sed -re "s/^.*?\/(.*\/.*\/.*)$/\1/g" | fzf)'
+alias vimdotfiles='pushd ~/dotfiles > /dev/null; vim README.md; popd > /dev/null'
 ```
 
 ## Misc
