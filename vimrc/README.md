@@ -286,12 +286,12 @@ set noswapfile
 ```
 ### Fzf
 
-Run `GFiles` with `e`.
+Run `Files` with `e`.
 
 ```vim
 augroup fzf_augroup
   autocmd!
-  noremap e :GFiles<CR>
+  noremap e :Files<CR>
 augroup END
 ```
 

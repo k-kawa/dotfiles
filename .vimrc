@@ -38,7 +38,7 @@ nnoremap <S-Tab> :bp<CR>
 set noswapfile
 augroup fzf_augroup
   autocmd!
-  noremap e :GFiles<CR>
+  noremap e :Files<CR>
 augroup END
 augroup md_augroup
   autocmd!
