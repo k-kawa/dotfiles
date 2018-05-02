@@ -7,12 +7,14 @@
   * [Vim 8](#vim-8)
   * [vim-plug](#vim-plug)
   * [Python 3.5 and neovim](#python-35-and-neovim)
+  * [fzf](#fzf)
 * [Plugins](#plugins)
   * [Markdown](#markdown)
     * [Config](#config)
   * [YAML](#yaml)
   * [NERDTree](#nerdtree)
-  * [Auto complete (Deoplete)](#auto-complete-deoplete)
+  * [fzf](#fzf-1)
+  * [Deoplete (Auto complete)](#deoplete-auto-complete)
   * [Golang](#golang)
   * [Ruby](#ruby)
   * [Initialize vim-plug](#initialize-vim-plug)
@@ -73,6 +75,17 @@ sudo pip3 install neovim
 I tried to use Python installed by `pyenv` at first but gave up after several minutes struggling.
 I uses the default system Python now.
 
+### fzf
+
+[`fzf`](https://github.com/junegunn/fzf) is a command-line fuzzy finder which is available from vim with its vim plugin.
+
+`fzf` is easy to install with `go get` command (as far as you've installed `go`)
+
+```sh
+go get github.com/junegunn/fzf
+```
+
+
 ## Plugins
 
 Let vim-plug install the plugins in `~/.vim/plugged`.
@@ -128,7 +141,16 @@ https://github.com/scrooloose/nerdtree
 Plug 'scrooloose/nerdtree'
 ```
 
-### Auto complete (Deoplete)
+### fzf
+
+https://github.com/junegunn/fzf.vim
+
+```vim
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+```
+
+### Deoplete (Auto complete)
 I love Deoplete!!
 
 ```vim

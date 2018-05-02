@@ -6,6 +6,8 @@ let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_follow_anchor = 1
 Plug 'stephpy/vim-yaml'
 Plug 'scrooloose/nerdtree'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
