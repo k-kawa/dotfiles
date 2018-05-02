@@ -10,5 +10,6 @@ function template() {
 
 template vim vimrc/README.md
 template tmux tmux.conf/README.md
+template ini gitconfig/README.md
 template zsh zshrc.local/README.md
 template text config/git/ignore/README.md
