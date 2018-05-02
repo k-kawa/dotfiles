@@ -3,7 +3,7 @@
 <!-- vim-markdown-toc GFM -->
 
 * [What's in this repository?](#whats-in-this-repository)
-* [How to deploy the configurations?](#how-to-deploy-the-configurations)
+* [How to deploy the dot files?](#how-to-deploy-the-dot-files)
 * [Prerequisites](#prerequisites)
 * [Tips](#tips)
 
@@ -11,16 +11,11 @@
 
 ## What's in this repository?
 
-My local configuration files and their documentations.
+My dot files and their documentations.
 
-## How to deploy the configurations?
+## How to deploy the dot files?
 
-Run the following commands.
-
-```sh
-./bin/filter-all
-./bin/ln-all
-```
+Run `make` command.
 
 ## Prerequisites
 
