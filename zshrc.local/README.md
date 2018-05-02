@@ -42,3 +42,9 @@ Deactivate screen lock (C-s)
 ```zsh
 stty ixany
 ```
+
+Change key bindings with `xmodmap`
+
+```zsh
+xmodmap ~/.Xmodmap
+```

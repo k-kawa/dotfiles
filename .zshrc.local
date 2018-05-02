@@ -10,3 +10,4 @@ eval "$(nodenv init -)"
 export PATH=$PATH:/usr/local/go/bin:$HOME/r/bin
 export GOPATH=$HOME/r
 stty ixany
+xmodmap ~/.Xmodmap
