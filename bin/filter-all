@@ -14,3 +14,4 @@ template ini gitconfig/README.md
 template zsh zshrc.local/README.md
 template text config/git/ignore/README.md
 template xmodmap Xmodmap/README.md
+template tig tigrc/README.md

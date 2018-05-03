@@ -27,7 +27,7 @@
   * [How to check the filetype of the opened file.](#how-to-check-the-filetype-of-the-opened-file)
 
 <!-- vim-markdown-toc -->
-
+ 
 ## What's this?
 
 This file is the source of my .vimrc file.

@@ -8,4 +8,4 @@
   * Git
     * [gitconfig](gitconfig/README.md)
     * [config/git/ignore](config/git/ignore/README.md)
-
+    * [tigrc](tigrc/README.md)

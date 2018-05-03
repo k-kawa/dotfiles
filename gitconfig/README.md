@@ -13,4 +13,3 @@ My `user.name` is `Kohei Kawasaki`
 [user]
   name = Kohei Kawasaki
 ```
-

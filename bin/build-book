@@ -9,7 +9,7 @@ fi
 
 docker run --rm -v "$PWD:/gitbook" -p 4000:4000 billryan/gitbook gitbook build
 sudo chown -R "${USER}" _book
-cp -r _book/{vimrc,zshrc.local,gitbook,gitconfig,config} tmp/book
+cp -r _book/{vimrc,zshrc.local,gitbook,gitconfig,config,tigrc} tmp/book
 cp -r _book/gitbook tmp/book
 cp _book/{index.html,search_index.json} tmp/book
 
