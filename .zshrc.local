@@ -10,7 +10,17 @@ eval "$(nodenv init -)"
 export PATH=$PATH:/usr/local/go/bin:$HOME/r/bin
 export GOPATH=$HOME/r
 alias v='vim $(fzf)'
+alias vdotfiles='pushd ~/dotfiles > /dev/null; vim README.md; popd > /dev/null'
+alias vtil='pushd ~/til > /dev/null; vim README.md; popd > /dev/null'
+alias bm='echo "${PWD}" >> ~/.bookmarks'
+alias cdb='cd $(cat ~/.bookmarks | sort | uniq | sed -e "/^#/d" | sed -e "/^\s*$/d" | fzf)'
+alias vbm='vim ~/.bookmarks'
 alias cdg='cd "${GOPATH}/src"/$(find ${GOPATH}/src -maxdepth 3 -mindepth 3 -type d | sed -re "s/^.*?\/(.*\/.*\/.*)$/\1/g" | fzf)'
-alias vimdotfiles='pushd ~/dotfiles > /dev/null; vim README.md; popd > /dev/null'
+fbr() {
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
 stty ixany
 xmodmap ~/.Xmodmap

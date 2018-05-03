@@ -39,8 +39,46 @@ export GOPATH=$HOME/r
 ## Vim
 ```zsh
 alias v='vim $(fzf)'
+alias vdotfiles='pushd ~/dotfiles > /dev/null; vim README.md; popd > /dev/null'
+alias vtil='pushd ~/til > /dev/null; vim README.md; popd > /dev/null'
+```
+
+## Bookmark
+
+`bm` to bookmark the current working directory.
+
+```zsh
+alias bm='echo "${PWD}" >> ~/.bookmarks'
+```
+
+`cdb` to list bookmarks and move to one of them.
+
+```zsh
+alias cdb='cd $(cat ~/.bookmarks | sort | uniq | sed -e "/^#/d" | sed -e "/^\s*$/d" | fzf)'
+```
+
+`vbm` to start vim to edit the bookmarks.
+
+```zsh
+alias vbm='vim ~/.bookmarks'
+```
+
+## Git
+
+`cdg` to move repositories managed in GOPATH.
+```zsh
 alias cdg='cd "${GOPATH}/src"/$(find ${GOPATH}/src -maxdepth 3 -mindepth 3 -type d | sed -re "s/^.*?\/(.*\/.*\/.*)$/\1/g" | fzf)'
-alias vimdotfiles='pushd ~/dotfiles > /dev/null; vim README.md; popd > /dev/null'
+```
+
+`fbr` to list and switch branches.
+
+```zsh
+fbr() {
+  local branches branch
+  branches=$(git branch -vv) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+}
 ```
 
 ## Misc
