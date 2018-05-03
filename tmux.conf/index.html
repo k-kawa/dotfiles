@@ -1,0 +1,380 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>tmuxrc.conf · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../Xmodmap/" />
+    
+    
+    <link rel="prev" href="../vimrc/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../zshrc.local/">
+            
+                <a href="../zshrc.local/">
+            
+                    
+                    zshrc.local
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.2" data-path="../vimrc/">
+            
+                <a href="../vimrc/">
+            
+                    
+                    vimrc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.1.3" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    tmuxrc.conf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="../Xmodmap/">
+            
+                <a href="../Xmodmap/">
+            
+                    
+                    Xmodmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" >
+            
+                <span>
+            
+                    
+                    Git
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.5.1" data-path="../gitconfig/">
+            
+                <a href="../gitconfig/">
+            
+                    
+                    gitconfig
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.2" data-path="../config/git/ignore/">
+            
+                <a href="../config/git/ignore/">
+            
+                    
+                    config/git/ignore
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >tmuxrc.conf</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="tmuxconf">.tmux.conf</h1>
+<!-- vim-markdown-toc GFM -->
+<ul>
+<li><a href="#swich-prefix-key">Swich prefix key</a></li>
+<li><a href="#open-a-windowpane-with-f2">Open a window/pane with <code>F2</code></a></li>
+<li><a href="#switch-windows-with-f3-and-f4">Switch windows with <code>F3</code> and <code>F4</code></a></li>
+<li><a href="#switch-panes-with-m-arrow">Switch panes with <code>M-arrow</code></a></li>
+<li><a href="#resize-panes-with-m-s-arrow">Resize panes with <code>M-S-arrow</code></a></li>
+<li><a href="#start-copy-mode-with-f7">Start <code>copy-mode</code> with <code>F7</code></a></li>
+</ul>
+<!-- vim-markdown-toc -->
+<h2 id="swich-prefix-key">Swich prefix key</h2>
+<p>Cancel keybindings for <code>C-b</code>, the default.</p>
+<pre><code class="lang-tmux">unbind C-b
+</code></pre>
+<p>Use <code>C-q</code> as the prefix key.</p>
+<pre><code class="lang-tmux">set -g prefix C-q
+</code></pre>
+<h2 id="open-a-windowpane-with-f2">Open a window/pane with <code>F2</code></h2>
+<ul>
+<li><code>F2</code>: open a new window.</li>
+<li><code>S-F2</code>: split the current window horizontally and open a new pane.</li>
+<li><code>C-F2</code>: split the current window vertically and open a new pane.</li>
+</ul>
+<pre><code class="lang-tmux">bind-key -n F2 new-window -c &quot;#{pane_current_path}&quot; \; rename-window &quot;-&quot;
+
+bind-key -n C-F2 display-panes \; split-window -h -c &quot;#{pane_current_path}&quot;
+bind-key -n S-F2 display-panes \; split-window -v -c &quot;#{pane_current_path}&quot;
+</code></pre>
+<h2 id="switch-windows-with-f3-and-f4">Switch windows with <code>F3</code> and <code>F4</code></h2>
+<pre><code class="lang-tmux">bind-key -n F3 previous-window
+bind-key -n F4 next-window
+</code></pre>
+<h2 id="switch-panes-with-m-arrow">Switch panes with <code>M-arrow</code></h2>
+<pre><code class="lang-tmux">bind-key -n M-Up display-panes \; select-pane -U
+bind-key -n M-Down display-panes \; select-pane -D
+bind-key -n M-Left display-panes \; select-pane -L
+bind-key -n M-Right display-panes \; select-pane -R
+</code></pre>
+<h2 id="resize-panes-with-m-s-arrow">Resize panes with <code>M-S-arrow</code></h2>
+<pre><code class="lang-tmux">bind-key -n M-S-Up resize-pane -U
+bind-key -n M-S-Down resize-pane -D
+bind-key -n M-S-Left resize-pane -L
+bind-key -n M-S-Right resize-pane -R
+</code></pre>
+<h2 id="start-copy-mode-with-f7">Start <code>copy-mode</code> with <code>F7</code></h2>
+<pre><code class="lang-tmux">bind-key -n F7 copy-mode
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../vimrc/" class="navigation navigation-prev " aria-label="Previous page: vimrc">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../Xmodmap/" class="navigation navigation-next " aria-label="Next page: Xmodmap">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"tmuxrc.conf","level":"1.1.3","depth":2,"next":{"title":"Xmodmap","level":"1.1.4","depth":2,"path":"Xmodmap/README.md","ref":"Xmodmap/README.md","articles":[]},"previous":{"title":"vimrc","level":"1.1.2","depth":2,"path":"vimrc/README.md","ref":"vimrc/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"tmux.conf/README.md","mtime":"2018-04-30T11:16:45.436Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-03T07:49:44.918Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

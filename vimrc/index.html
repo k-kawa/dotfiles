@@ -1,0 +1,576 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>vimrc · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../tmux.conf/" />
+    
+    
+    <link rel="prev" href="../zshrc.local/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.1" data-path="../zshrc.local/">
+            
+                <a href="../zshrc.local/">
+            
+                    
+                    zshrc.local
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    vimrc
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.3" data-path="../tmux.conf/">
+            
+                <a href="../tmux.conf/">
+            
+                    
+                    tmuxrc.conf
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.4" data-path="../Xmodmap/">
+            
+                <a href="../Xmodmap/">
+            
+                    
+                    Xmodmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5" >
+            
+                <span>
+            
+                    
+                    Git
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.1.5.1" data-path="../gitconfig/">
+            
+                <a href="../gitconfig/">
+            
+                    
+                    gitconfig
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.1.5.2" data-path="../config/git/ignore/">
+            
+                <a href="../config/git/ignore/">
+            
+                    
+                    config/git/ignore
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >vimrc</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="vimrc">.vimrc</h1>
+<!-- vim-markdown-toc GFM -->
+<ul>
+<li><a href="#whats-this">What&apos;s this?</a></li>
+<li><a href="#prerequisite">Prerequisite</a><ul>
+<li><a href="#vim-8">Vim 8</a></li>
+<li><a href="#vim-plug">vim-plug</a></li>
+<li><a href="#python-35-and-neovim">Python 3.5 and neovim</a></li>
+<li><a href="#fzf">fzf</a></li>
+</ul>
+</li>
+<li><a href="#general">General</a></li>
+<li><a href="#plugins">Plugins</a><ul>
+<li><a href="#markdown">Markdown</a></li>
+<li><a href="#yaml">YAML</a></li>
+<li><a href="#nerdtree">NERDTree</a></li>
+<li><a href="#fzf-1">fzf</a></li>
+<li><a href="#deoplete-auto-complete">Deoplete (Auto complete)</a></li>
+<li><a href="#golang">Golang</a></li>
+<li><a href="#ruby">Ruby</a></li>
+<li><a href="#plantuml">PlantUML</a></li>
+<li><a href="#initialize-vim-plug">Initialize vim-plug</a></li>
+</ul>
+</li>
+<li><a href="#look-and-feel">Look and feel</a><ul>
+<li><a href="#fzf-2">Fzf</a></li>
+<li><a href="#markdown-1">Markdown</a></li>
+<li><a href="#golang-1">Golang</a></li>
+</ul>
+</li>
+<li><a href="#tips">Tips</a><ul>
+<li><a href="#keybindings">Keybindings</a></li>
+<li><a href="#how-to-check-the-filetype-of-the-opened-file">How to check the filetype of the opened file.</a></li>
+</ul>
+</li>
+</ul>
+<!-- vim-markdown-toc -->
+<h2 id="whats-this">What&apos;s this?</h2>
+<p>This file is the source of my .vimrc file.</p>
+<h2 id="prerequisite">Prerequisite</h2>
+<h3 id="vim-8">Vim 8</h3>
+<p>I recently started to use Vim 8 and found it super!!
+Here&apos;s the script to install it in Ubuntu 16.04</p>
+<pre><code class="lang-sh">sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update
+sudo apt install vim
+sudo apt install ppa-purge &amp;&amp; sudo ppa-purge ppa:jonathonf/vim
+</code></pre>
+<p>The script above is copied from 
+<a href="http://tipsonubuntu.com/2016/09/13/vim-8-0-released-install-ubuntu-16-04/" target="_blank">http://tipsonubuntu.com/2016/09/13/vim-8-0-released-install-ubuntu-16-04/</a></p>
+<h3 id="vim-plug">vim-plug</h3>
+<p>This .vimrc uses <a href="https://github.com/junegunn/vim-plug" target="_blank">vim-plug</a> to install vim plugins so that I need to run the following command in advance.</p>
+<pre><code class="lang-sh">curl <span class="hljs-_">-f</span>Lo ~/.vim/<span class="hljs-built_in">autoload</span>/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+</code></pre>
+<h3 id="python-35-and-neovim">Python 3.5 and neovim</h3>
+<p><code>neovim</code>, whichi is the Python module of vim client, is required by <code>deoplete</code> plugin.</p>
+<p>Python 3.5 is registerted in apt packages.</p>
+<pre><code class="lang-sh">sudo apt-get install python3 python3-pip
+</code></pre>
+<p><code>neovim</code> is installable by <code>pip</code> or <code>pip3</code> command.</p>
+<pre><code class="lang-sh">sudo pip3 install neovim
+</code></pre>
+<p>I tried to use Python installed by <code>pyenv</code> at first but gave up after several minutes struggling.
+I uses the default system Python now.</p>
+<h3 id="fzf">fzf</h3>
+<p><a href="https://github.com/junegunn/fzf" target="_blank"><code>fzf</code></a> is a command-line fuzzy finder which is available from vim with its vim plugin.</p>
+<p><code>fzf</code> is easy to install with <code>go get</code> command (as far as you&apos;ve installed <code>go</code>)</p>
+<pre><code class="lang-sh">go get github.com/junegunn/fzf
+</code></pre>
+<h2 id="general">General</h2>
+<p>Use spaces instead of tab.</p>
+<pre><code class="lang-vim"><span class="hljs-keyword">set</span> expandtab
+</code></pre>
+<p>Show 2 spaces for each tab.
+This conf is useful especially when I write Golang.</p>
+<pre><code class="lang-vim"><span class="hljs-keyword">set</span> tabstop=<span class="hljs-number">2</span>
+</code></pre>
+<p>Use 2 spaces for each indent.</p>
+<pre><code class="lang-vim"><span class="hljs-keyword">set</span> <span class="hljs-built_in">shiftwidth</span>=<span class="hljs-number">2</span>
+</code></pre>
+<p>Show line numbers.</p>
+<pre><code class="lang-vim"><span class="hljs-keyword">set</span> <span class="hljs-keyword">number</span>
+</code></pre>
+<p>Save files automatically.</p>
+<pre><code class="lang-vim"><span class="hljs-keyword">set</span> autowrite
+</code></pre>
+<p>In <code>Tab</code> typed, show the list of matches and complete the longest common part.
+In <code>Tab</code> tabyped again, select the first match, the second match etc. </p>
+<pre><code class="lang-vim"><span class="hljs-keyword">set</span> wildmenu
+<span class="hljs-keyword">set</span> wildmode=lis<span class="hljs-variable">t:longest</span>,full
+</code></pre>
+<p>Assign <code>Space</code> key to the <code>leader</code> key.</p>
+<pre><code class="lang-vim"><span class="hljs-keyword">let</span> mapleader = <span class="hljs-string">&quot;\&lt;Space&gt;&quot;</span>
+</code></pre>
+<p>Toggle NERDTree with <code>F8</code>.</p>
+<pre><code class="lang-vim">nmap &lt;F8&gt; :NERDTreeToggle&lt;CR&gt;
+</code></pre>
+<p>Highlight matched texts.</p>
+<pre><code class="lang-vim"><span class="hljs-keyword">set</span> hlsearch
+</code></pre>
+<p>Activate incremental search.</p>
+<pre><code class="lang-vim"><span class="hljs-keyword">set</span> incsearch
+</code></pre>
+<p>Ignore the difference of cases until I use both lower/upper case characters in search.</p>
+<pre><code class="lang-vim"><span class="hljs-keyword">set</span> ignorecase
+<span class="hljs-keyword">set</span> smartcase
+</code></pre>
+<p>Switch buffers with <code>&lt;TAB&gt;</code></p>
+<pre><code class="lang-vim">nnoremap &lt;Tab&gt; :bn&lt;CR&gt;
+nnoremap &lt;S-Tab&gt; :bp&lt;CR&gt;
+</code></pre>
+<p>Disable swp file</p>
+<pre><code class="lang-vim"><span class="hljs-keyword">set</span> noswapfile
+</code></pre>
+<h2 id="plugins">Plugins</h2>
+<p>Let vim-plug install the plugins in <code>~/.vim/plugged</code>.</p>
+<pre><code class="lang-vim"><span class="hljs-keyword">call</span> plug#begin(<span class="hljs-string">&apos;~/.vim/plugged&apos;</span>)
+</code></pre>
+<h3 id="markdown">Markdown</h3>
+<p>Plugins to edit Markdown.
+<a href="https://github.com/plasticboy/vim-markdown" target="_blank">https://github.com/plasticboy/vim-markdown</a></p>
+<pre><code class="lang-vim">Plug <span class="hljs-string">&apos;godlygeek/tabular&apos;</span>
+Plug <span class="hljs-string">&apos;plasticboy/vim-markdown&apos;</span>
+</code></pre>
+<p>Plugin to generate TOC of a markdown file.
+<a href="https://github.com/mzlogin/vim-markdown-toc" target="_blank">https://github.com/mzlogin/vim-markdown-toc</a></p>
+<pre><code class="lang-vim">Plug <span class="hljs-string">&apos;mzlogin/vim-markdown-toc&apos;</span>
+</code></pre>
+<h3 id="yaml">YAML</h3>
+<p>Plugin to edit YAML files.</p>
+<pre><code class="lang-vim">Plug <span class="hljs-string">&apos;stephpy/vim-yaml&apos;</span>
+</code></pre>
+<h3 id="nerdtree">NERDTree</h3>
+<p><a href="https://github.com/scrooloose/nerdtree" target="_blank">https://github.com/scrooloose/nerdtree</a></p>
+<pre><code class="lang-vim">Plug <span class="hljs-string">&apos;scrooloose/nerdtree&apos;</span>
+</code></pre>
+<h3 id="fzf">fzf</h3>
+<ul>
+<li><a href="https://github.com/junegunn/fzf/blob/master/README-VIM.md" target="_blank">https://github.com/junegunn/fzf/blob/master/README-VIM.md</a></li>
+<li><a href="https://github.com/junegunn/fzf.vim" target="_blank">https://github.com/junegunn/fzf.vim</a></li>
+</ul>
+<pre><code class="lang-vim">Plug <span class="hljs-string">&apos;junegunn/fzf&apos;</span>
+Plug <span class="hljs-string">&apos;junegunn/fzf.vim&apos;</span>
+</code></pre>
+<h3 id="deoplete-auto-complete">Deoplete (Auto complete)</h3>
+<p>I love Deoplete!!</p>
+<pre><code class="lang-vim">if has(&apos;nvim&apos;)
+  Plug &apos;Shougo/deoplete.nvim&apos;, { &apos;do&apos;: &apos;:UpdateRemotePlugins&apos; }
+else
+  Plug &apos;Shougo/deoplete.nvim&apos;
+  Plug &apos;roxma/nvim-yarp&apos;
+  Plug &apos;roxma/vim-hug-neovim-rpc&apos;
+endif
+
+let g:deoplete#enable_at_startup = 1
+</code></pre>
+<h3 id="golang">Golang</h3>
+<p>Plugins to edit golang.</p>
+<p><code>vim-go</code> integrates vim with Golang toolkits such as gofmt, errcheck etc.</p>
+<pre><code class="lang-vim">Plug &apos;fatih/vim-go&apos;, { &apos;do&apos;: &apos;:GoInstallBinaries&apos; }
+</code></pre>
+<p><code>vim-go</code>&apos;s tutorial in Japanese is here. <a href="https://github.com/hnakamur/vim-go-tutorial-ja" target="_blank">https://github.com/hnakamur/vim-go-tutorial-ja</a></p>
+<p>deoplete&apos;s plugin for Golang.
+<a href="https://github.com/zchee/deoplete-go" target="_blank">https://github.com/zchee/deoplete-go</a></p>
+<pre><code class="lang-vim">Plug &apos;zchee/deoplete-go&apos;, { &apos;do&apos;: &apos;make&apos;}
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Plugins to edit Ruby.</p>
+<p><code>vim-ruby</code>&apos;s document is here. <a href="https://github.com/vim-ruby/vim-ruby/wiki" target="_blank">https://github.com/vim-ruby/vim-ruby/wiki</a> </p>
+<pre><code class="lang-vim">Plug <span class="hljs-string">&apos;vim-ruby/vim-ruby&apos;</span>
+</code></pre>
+<p>deoplete&apos;s plugin for Ruby.
+<a href="https://github.com/fishbullet/deoplete-ruby" target="_blank">https://github.com/fishbullet/deoplete-ruby</a></p>
+<pre><code class="lang-vim">Plug <span class="hljs-string">&apos;fishbullet/deoplete-ruby&apos;</span>
+</code></pre>
+<p>Plugin to run rspec via vim.
+<a href="https://github.com/thoughtbot/vim-rspec" target="_blank">https://github.com/thoughtbot/vim-rspec</a></p>
+<pre><code class="lang-vim">Plug <span class="hljs-string">&apos;thoughtbot/vim-rspec&apos;</span>
+</code></pre>
+<pre><code class="lang-vim">augroup rb_augroup
+  autocmd!
+  autocmd FileType ruby nmap &lt;Leader&gt;t :call RunAllSpecs()&lt;CR&gt;
+  autocmd FileType ruby nmap &lt;Leader&gt;tt :call RunCurrentSpecFile()&lt;CR&gt;
+  autocmd FileType ruby nmap &lt;Leader&gt;tl :call RunLastSpec()&lt;CR&gt;
+  autocmd FileType ruby nmap &lt;Leader&gt;tn :call RunNearestSpec()&lt;CR&gt;
+augroup END
+</code></pre>
+<p>Plugin for Rails projects.</p>
+<pre><code class="lang-vim">Plug <span class="hljs-string">&apos;tpope/vim-rails&apos;</span>
+</code></pre>
+<h3 id="plantuml">PlantUML</h3>
+<p><a href="https://github.com/aklt/plantuml-syntax" target="_blank">https://github.com/aklt/plantuml-syntax</a></p>
+<pre><code class="lang-vim">Plug <span class="hljs-string">&apos;aklt/plantuml-syntax&apos;</span>
+</code></pre>
+<pre><code class="lang-vim"><span class="hljs-keyword">let</span> <span class="hljs-variable">g:plantuml_executable_script</span>=<span class="hljs-string">&quot;java -jar $HOME/bin/plantuml.jar -tsvg&quot;</span>
+</code></pre>
+<h3 id="initialize-vim-plug">Initialize vim-plug</h3>
+<p>Let vim-plug initialzie itself with the plugins above.</p>
+<pre><code class="lang-vim"><span class="hljs-keyword">call</span> plug#end()
+</code></pre>
+<p>Now that I can install/update the plugins with <code>:PluginInstall</code> command.</p>
+<h2 id="look-and-feel">Look and feel</h2>
+<h3 id="fzf">Fzf</h3>
+<p>Run <code>Files</code> with <code>e</code>.</p>
+<pre><code class="lang-vim">augroup fzf_augroup
+  autocmd!
+  noremap e :Files&lt;CR&gt;
+augroup END
+</code></pre>
+<h3 id="markdown">Markdown</h3>
+<pre><code class="lang-vim"><span class="hljs-keyword">augroup</span> md_augroup
+  autocmd!
+  <span class="hljs-comment">&quot; Disable folding.</span>
+  <span class="hljs-keyword">autocmd</span> FileType markdown <span class="hljs-keyword">set</span> nofoldenable
+<span class="hljs-keyword">augroup</span> END
+</code></pre>
+<p>Enable TOC window auto-fit.</p>
+<pre><code class="lang-vim"><span class="hljs-keyword">let</span> <span class="hljs-variable">g:vim_markdown_toc_autofit</span> = <span class="hljs-number">1</span>
+</code></pre>
+<p>Follow named anchors.</p>
+<pre><code class="lang-vim"><span class="hljs-keyword">let</span> <span class="hljs-variable">g:vim_markdown_follow_anchor</span> = <span class="hljs-number">1</span>
+</code></pre>
+<h3 id="golang">Golang</h3>
+<pre><code class="lang-vim">augroup go_augroup
+  autocmd!
+  &quot; Use tab
+  autocmd FileType go set noexpandtab
+  autocmd FileType go nmap &lt;leader&gt;b  &lt;Plug&gt;(go-build)
+  autocmd FileType go nmap &lt;leader&gt;r  &lt;Plug&gt;(go-run)
+  autocmd FileType go nmap &lt;leader&gt;t  &lt;Plug&gt;(go-test)
+  autocmd FileType go nmap &lt;leader&gt;n  :cnext&lt;CR&gt;
+  autocmd FileType go nmap &lt;leader&gt;p  :cprevious&lt;CR&gt;
+augroup END
+</code></pre>
+<h2 id="tips">Tips</h2>
+<p>Links in this section might include pages in Japanese.</p>
+<h3 id="keybindings">Keybindings</h3>
+<ul>
+<li><a href="http://vim-jp.org/vimdoc-ja/map.html" target="_blank">http://vim-jp.org/vimdoc-ja/map.html</a></li>
+<li><a href="https://cocopon.me/blog/2013/10/vim-map-noremap/" target="_blank">https://cocopon.me/blog/2013/10/vim-map-noremap/</a></li>
+</ul>
+<h3 id="how-to-check-the-filetype-of-the-opened-file">How to check the filetype of the opened file.</h3>
+<pre><code>verbose set filetype?
+</code></pre>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../zshrc.local/" class="navigation navigation-prev " aria-label="Previous page: zshrc.local">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../tmux.conf/" class="navigation navigation-next " aria-label="Next page: tmuxrc.conf">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"vimrc","level":"1.1.2","depth":2,"next":{"title":"tmuxrc.conf","level":"1.1.3","depth":2,"path":"tmux.conf/README.md","ref":"tmux.conf/README.md","articles":[]},"previous":{"title":"zshrc.local","level":"1.1.1","depth":2,"path":"zshrc.local/README.md","ref":"zshrc.local/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"vimrc/README.md","mtime":"2018-05-03T07:19:23.824Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-03T07:49:44.918Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
