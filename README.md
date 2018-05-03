@@ -11,11 +11,13 @@
 
 ## What's in this repository?
 
-My dot files and their documentations.
+Practical guide to maintain dotfiles in the home direcotry (for me).
 
 ## How to deploy the dot files?
 
 Run `make` command.
+
+See the [Makefile](https://github.com/k-kawa/dotfiles/blob/master/Makefile) in the repository.
 
 ## Prerequisites
 

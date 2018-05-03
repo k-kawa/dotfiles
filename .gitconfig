@@ -2,7 +2,3 @@
   editor = vim
 [user]
   name = Kohei Kawasaki
-[diff]
-  tool = vimdiff
-[merge]
-  tool = vimdiff

@@ -14,12 +14,3 @@ My `user.name` is `Kohei Kawasaki`
   name = Kohei Kawasaki
 ```
 
-Use `vimdiff` to show diff and merge conflicts.
-
-```ini
-[diff]
-  tool = vimdiff
-[merge]
-  tool = vimdiff
-```
-
