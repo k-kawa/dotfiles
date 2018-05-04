@@ -22,5 +22,8 @@ fbr() {
   branch=$(echo "$branches" | fzf +m) &&
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
+if [ -e "${GOPATH}/src/github.com/junegunn/fzf/shell/key-bindings.zsh" ]; then
+  source "${GOPATH}/src/github.com/junegunn/fzf/shell/key-bindings.zsh"
+fi
 stty ixany
 xmodmap ~/.Xmodmap
