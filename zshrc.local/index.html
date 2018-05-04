@@ -272,9 +272,11 @@
 <li><a href="#rbenv">rbenv</a></li>
 <li><a href="#nodenv">nodenv</a></li>
 <li><a href="#golang">Golang</a></li>
+<li><a href="#git">Git</a></li>
+<li><a href="#pecofzf">peco/fzf</a></li>
 <li><a href="#vim">Vim</a></li>
 <li><a href="#bookmark">Bookmark</a></li>
-<li><a href="#git">Git</a></li>
+<li><a href="#git-1">Git</a></li>
 <li><a href="#fzf">FZF</a></li>
 <li><a href="#misc">Misc</a></li>
 </ul>
@@ -304,24 +306,53 @@ Add <code>source ${HOME}/.zshrc.local</code> in your <code>.zshrc</code> to acti
 <pre><code class="lang-zsh"><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:/usr/<span class="hljs-built_in">local</span>/go/bin:<span class="hljs-variable">$HOME</span>/r/bin
 <span class="hljs-built_in">export</span> GOPATH=<span class="hljs-variable">$HOME</span>/r
 </code></pre>
+<h3 id="git">Git</h3>
+<p><code>gls</code> to list all the files in the working diretory respecting <code>.gitignore</code>.
+<a href="https://git-scm.com/docs/git-ls-files" target="_blank">Man of <code>git ls-files</code></a></p>
+<pre><code class="lang-zsh"><span class="hljs-built_in">alias</span> gls=<span class="hljs-string">&apos;git ls-files -c -o --exclude-standard&apos;</span>
+</code></pre>
+<h3 id="pecofzf">peco/fzf</h3>
+<p><code>q_or_2</code> is the function such that ...</p>
+<ul>
+<li>when the first line of the given text from stdin ends with <code>!</code>, it returns the line without the following last <code>!</code> </li>
+<li>otherwise it returns the second line.</li>
+</ul>
+<p>This function is useful when it is piped after <code>peco/fzf --print-query</code> command.</p>
+<pre><code class="lang-zsh"><span class="hljs-keyword">function</span> <span class="hljs-function"><span class="hljs-title">q_or_2</span></span>() {          
+  <span class="hljs-built_in">local</span> o
+  <span class="hljs-built_in">local</span> f
+  o=$(cat -)
+
+  <span class="hljs-comment"># Extract str leading of ?</span>
+  f=$(<span class="hljs-built_in">echo</span> <span class="hljs-variable">$o</span> | head -n 1 | sed -n -E <span class="hljs-string">&apos;s/^([^?]*)!\s*/\1/gp&apos;</span>)
+  <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$f</span>&quot;</span> != <span class="hljs-string">&quot;&quot;</span> ]; <span class="hljs-keyword">then</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$f</span> 
+  <span class="hljs-keyword">else</span>
+    <span class="hljs-built_in">echo</span> <span class="hljs-variable">$o</span> | sed -n <span class="hljs-string">&apos;2p&apos;</span>
+  <span class="hljs-keyword">fi</span>
+}
+
+<span class="hljs-built_in">alias</span> pecoq=<span class="hljs-string">&apos;peco --print-query | q_or_2&apos;</span>
+<span class="hljs-built_in">alias</span> fzfq=<span class="hljs-string">&apos;fzf --print-query | q_or_2&apos;</span>
+</code></pre>
 <h3 id="vim">Vim</h3>
-<pre><code class="lang-zsh"><span class="hljs-built_in">alias</span> v=<span class="hljs-string">&apos;vim $(fzf)&apos;</span>
-<span class="hljs-built_in">alias</span> vdotfiles=<span class="hljs-string">&apos;pushd ~/dotfiles &gt; /dev/null; vim README.md; popd &gt; /dev/null&apos;</span>
-<span class="hljs-built_in">alias</span> vtil=<span class="hljs-string">&apos;pushd ~/til &gt; /dev/null; vim README.md; popd &gt; /dev/null&apos;</span>
+<pre><code class="lang-zsh"><span class="hljs-built_in">alias</span> v=<span class="hljs-string">&apos;vim $(ls | fzfq)&apos;</span>
+<span class="hljs-built_in">alias</span> vdotfiles=<span class="hljs-string">&apos;pushd ~/dotfiles &gt; /dev/null &amp;&amp; vim $(gls | fzfq) &amp;&amp; popd &gt; /dev/null&apos;</span>
+<span class="hljs-built_in">alias</span> vtil=<span class="hljs-string">&apos;pushd ~/til &gt; /dev/null &amp;&amp; vim $(gls | fzfq) &amp;&amp; popd &gt; /dev/null&apos;</span>
 </code></pre>
 <h3 id="bookmark">Bookmark</h3>
 <p><code>bm</code> to bookmark the current working directory.</p>
 <pre><code class="lang-zsh"><span class="hljs-built_in">alias</span> bm=<span class="hljs-string">&apos;echo &quot;${PWD}&quot; &gt;&gt; ~/.bookmarks&apos;</span>
 </code></pre>
 <p><code>cdb</code> to list bookmarks and move to one of them.</p>
-<pre><code class="lang-zsh"><span class="hljs-built_in">alias</span> cdb=<span class="hljs-string">&apos;cd $(cat ~/.bookmarks | sort | uniq | sed -e &quot;/^#/d&quot; | sed -e &quot;/^\s*$/d&quot; | fzf)&apos;</span>
+<pre><code class="lang-zsh"><span class="hljs-built_in">alias</span> cdb=<span class="hljs-string">&apos;cd $(cat ~/.bookmarks | sort | uniq | sed -e &quot;/^#/d&quot; | sed -e &quot;/^\s*$/d&quot; | fzfq)&apos;</span>
 </code></pre>
 <p><code>vbm</code> to start vim to edit the bookmarks.</p>
 <pre><code class="lang-zsh"><span class="hljs-built_in">alias</span> vbm=<span class="hljs-string">&apos;vim ~/.bookmarks&apos;</span>
 </code></pre>
 <h3 id="git">Git</h3>
 <p><code>cdg</code> to move repositories managed in GOPATH.</p>
-<pre><code class="lang-zsh"><span class="hljs-built_in">alias</span> cdg=<span class="hljs-string">&apos;cd &quot;${GOPATH}/src&quot;/$(find ${GOPATH}/src -maxdepth 3 -mindepth 3 -type d | sed -re &quot;s/^.*?\/(.*\/.*\/.*)$/\1/g&quot; | fzf)&apos;</span>
+<pre><code class="lang-zsh"><span class="hljs-built_in">alias</span> cdg=<span class="hljs-string">&apos;cd &quot;${GOPATH}/src&quot;/$(find ${GOPATH}/src -maxdepth 3 -mindepth 3 -type d | sed -re &quot;s/^.*?\/(.*\/.*\/.*)$/\1/g&quot; | fzfq)&apos;</span>
 </code></pre>
 <p><code>fbr</code> to list and switch branches.</p>
 <pre><code class="lang-zsh"><span class="hljs-function"><span class="hljs-title">fbr</span></span>() {
@@ -387,7 +418,7 @@ Add <code>source ${HOME}/.zshrc.local</code> in your <code>.zshrc</code> to acti
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"zshrc.local","level":"1.1.1","depth":2,"next":{"title":"vimrc","level":"1.1.2","depth":2,"path":"vimrc/README.md","ref":"vimrc/README.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"zshrc.local","level":"1.1.1","depth":2,"path":"zshrc.local/README.md","ref":"zshrc.local/README.md","articles":[]},{"title":"vimrc","level":"1.1.2","depth":2,"path":"vimrc/README.md","ref":"vimrc/README.md","articles":[]},{"title":"tmuxrc.conf","level":"1.1.3","depth":2,"path":"tmux.conf/README.md","ref":"tmux.conf/README.md","articles":[]},{"title":"Xmodmap","level":"1.1.4","depth":2,"path":"Xmodmap/README.md","ref":"Xmodmap/README.md","articles":[]},{"title":"Git","level":"1.1.5","depth":2,"ref":"","articles":[{"title":"gitconfig","level":"1.1.5.1","depth":3,"path":"gitconfig/README.md","ref":"gitconfig/README.md","articles":[]},{"title":"config/git/ignore","level":"1.1.5.2","depth":3,"path":"config/git/ignore/README.md","ref":"config/git/ignore/README.md","articles":[]},{"title":"tigrc","level":"1.1.5.3","depth":3,"path":"tigrc/README.md","ref":"tigrc/README.md","articles":[]}]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"zshrc.local/README.md","mtime":"2018-05-04T04:06:10.724Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-04T04:09:05.504Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"zshrc.local","level":"1.1.1","depth":2,"next":{"title":"vimrc","level":"1.1.2","depth":2,"path":"vimrc/README.md","ref":"vimrc/README.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"zshrc.local","level":"1.1.1","depth":2,"path":"zshrc.local/README.md","ref":"zshrc.local/README.md","articles":[]},{"title":"vimrc","level":"1.1.2","depth":2,"path":"vimrc/README.md","ref":"vimrc/README.md","articles":[]},{"title":"tmuxrc.conf","level":"1.1.3","depth":2,"path":"tmux.conf/README.md","ref":"tmux.conf/README.md","articles":[]},{"title":"Xmodmap","level":"1.1.4","depth":2,"path":"Xmodmap/README.md","ref":"Xmodmap/README.md","articles":[]},{"title":"Git","level":"1.1.5","depth":2,"ref":"","articles":[{"title":"gitconfig","level":"1.1.5.1","depth":3,"path":"gitconfig/README.md","ref":"gitconfig/README.md","articles":[]},{"title":"config/git/ignore","level":"1.1.5.2","depth":3,"path":"config/git/ignore/README.md","ref":"config/git/ignore/README.md","articles":[]},{"title":"tigrc","level":"1.1.5.3","depth":3,"path":"tigrc/README.md","ref":"tigrc/README.md","articles":[]}]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"zshrc.local/README.md","mtime":"2018-05-04T11:18:40.648Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-05-04T11:29:34.920Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
