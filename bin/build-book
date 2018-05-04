@@ -13,3 +13,4 @@ cp -r _book/{vimrc,zshrc.local,gitbook,gitconfig,config,tigrc} tmp/book
 cp -r _book/gitbook tmp/book
 cp _book/{index.html,search_index.json} tmp/book
 
+sudo rm -rf _book
