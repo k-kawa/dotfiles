@@ -11,7 +11,9 @@
 
 ## What's in this repository?
 
-Practical guide to maintain dotfiles in the home direcotry (for me).
+Practical guide to maintain dotfiles in home direcotry (for me).
+
+https://k-kawa.github.io/dotfiles/
 
 ## How to deploy the dot files?
 
