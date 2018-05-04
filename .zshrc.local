@@ -9,13 +9,30 @@ export PATH="$NODENV_ROOT/bin:$PATH"
 eval "$(nodenv init -)"
 export PATH=$PATH:/usr/local/go/bin:$HOME/r/bin
 export GOPATH=$HOME/r
-alias v='vim $(fzf)'
-alias vdotfiles='pushd ~/dotfiles > /dev/null; vim README.md; popd > /dev/null'
-alias vtil='pushd ~/til > /dev/null; vim README.md; popd > /dev/null'
+alias gls='git ls-files -c -o --exclude-standard'
+function q_or_2() {          
+  local o
+  local f
+  o=$(cat -)
+
+  # Extract str leading of ?
+  f=$(echo $o | head -n 1 | sed -n -E 's/^([^?]*)!\s*/\1/gp')
+  if [ "$f" != "" ]; then
+    echo $f 
+  else
+    echo $o | sed -n '2p'
+  fi
+}
+
+alias pecoq='peco --print-query | q_or_2'
+alias fzfq='fzf --print-query | q_or_2'
+alias v='vim $(ls | fzfq)'
+alias vdotfiles='pushd ~/dotfiles > /dev/null && vim $(gls | fzfq) && popd > /dev/null'
+alias vtil='pushd ~/til > /dev/null && vim $(gls | fzfq) && popd > /dev/null'
 alias bm='echo "${PWD}" >> ~/.bookmarks'
-alias cdb='cd $(cat ~/.bookmarks | sort | uniq | sed -e "/^#/d" | sed -e "/^\s*$/d" | fzf)'
+alias cdb='cd $(cat ~/.bookmarks | sort | uniq | sed -e "/^#/d" | sed -e "/^\s*$/d" | fzfq)'
 alias vbm='vim ~/.bookmarks'
-alias cdg='cd "${GOPATH}/src"/$(find ${GOPATH}/src -maxdepth 3 -mindepth 3 -type d | sed -re "s/^.*?\/(.*\/.*\/.*)$/\1/g" | fzf)'
+alias cdg='cd "${GOPATH}/src"/$(find ${GOPATH}/src -maxdepth 3 -mindepth 3 -type d | sed -re "s/^.*?\/(.*\/.*\/.*)$/\1/g" | fzfq)'
 fbr() {
   local branches branch
   branches=$(git branch -vv) &&

@@ -8,9 +8,11 @@
   * [rbenv](#rbenv)
   * [nodenv](#nodenv)
   * [Golang](#golang)
+  * [Git](#git)
+  * [peco/fzf](#pecofzf)
   * [Vim](#vim)
   * [Bookmark](#bookmark)
-  * [Git](#git)
+  * [Git](#git-1)
   * [FZF](#fzf)
   * [Misc](#misc)
 
@@ -54,11 +56,47 @@ export PATH=$PATH:/usr/local/go/bin:$HOME/r/bin
 export GOPATH=$HOME/r
 ```
 
+### Git
+
+`gls` to list all the files in the working diretory respecting `.gitignore`.
+[Man of `git ls-files`](https://git-scm.com/docs/git-ls-files)
+
+```zsh
+alias gls='git ls-files -c -o --exclude-standard'
+```
+
+### peco/fzf
+
+`q_or_2` is the function such that ...
+- when the first line of the given text from stdin ends with `!`, it returns the line without the following last `!` 
+- otherwise it returns the second line.
+
+This function is useful when it is piped after `peco/fzf --print-query` command.
+
+```zsh
+function q_or_2() {          
+  local o
+  local f
+  o=$(cat -)
+
+  # Extract str leading of ?
+  f=$(echo $o | head -n 1 | sed -n -E 's/^([^?]*)!\s*/\1/gp')
+  if [ "$f" != "" ]; then
+    echo $f 
+  else
+    echo $o | sed -n '2p'
+  fi
+}
+
+alias pecoq='peco --print-query | q_or_2'
+alias fzfq='fzf --print-query | q_or_2'
+```
+
 ### Vim
 ```zsh
-alias v='vim $(fzf)'
-alias vdotfiles='pushd ~/dotfiles > /dev/null; vim README.md; popd > /dev/null'
-alias vtil='pushd ~/til > /dev/null; vim README.md; popd > /dev/null'
+alias v='vim $(ls | fzfq)'
+alias vdotfiles='pushd ~/dotfiles > /dev/null && vim $(gls | fzfq) && popd > /dev/null'
+alias vtil='pushd ~/til > /dev/null && vim $(gls | fzfq) && popd > /dev/null'
 ```
 
 ### Bookmark
@@ -72,7 +110,7 @@ alias bm='echo "${PWD}" >> ~/.bookmarks'
 `cdb` to list bookmarks and move to one of them.
 
 ```zsh
-alias cdb='cd $(cat ~/.bookmarks | sort | uniq | sed -e "/^#/d" | sed -e "/^\s*$/d" | fzf)'
+alias cdb='cd $(cat ~/.bookmarks | sort | uniq | sed -e "/^#/d" | sed -e "/^\s*$/d" | fzfq)'
 ```
 
 `vbm` to start vim to edit the bookmarks.
@@ -85,7 +123,7 @@ alias vbm='vim ~/.bookmarks'
 
 `cdg` to move repositories managed in GOPATH.
 ```zsh
-alias cdg='cd "${GOPATH}/src"/$(find ${GOPATH}/src -maxdepth 3 -mindepth 3 -type d | sed -re "s/^.*?\/(.*\/.*\/.*)$/\1/g" | fzf)'
+alias cdg='cd "${GOPATH}/src"/$(find ${GOPATH}/src -maxdepth 3 -mindepth 3 -type d | sed -re "s/^.*?\/(.*\/.*\/.*)$/\1/g" | fzfq)'
 ```
 
 `fbr` to list and switch branches.

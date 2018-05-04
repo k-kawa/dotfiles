@@ -315,6 +315,7 @@ Run `Files` with `e`.
 augroup fzf_augroup
   autocmd!
   noremap e :Files<CR>
+  noremap <leader>e :GFiles -c -o --exclude-standard<CR>
 augroup END
 ```
 
