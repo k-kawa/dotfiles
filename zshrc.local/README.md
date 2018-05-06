@@ -96,7 +96,7 @@ alias fzfq='fzf --print-query | q_or_2'
 ```zsh
 alias v='vim $(ls | fzfq)'
 alias vdotfiles='pushd ~/dotfiles > /dev/null && vim $(gls | fzfq) && popd > /dev/null'
-alias vtil='pushd ~/til > /dev/null && vim $(gls | fzfq) && popd > /dev/null'
+alias vl='pushd ~/til > /dev/null && vim $(gls | fzfq) && git add . && git commit -m "update" && (git push origin master) & ; popd > /dev/null'
 ```
 
 ### Bookmark
