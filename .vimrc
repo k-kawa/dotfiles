@@ -45,6 +45,8 @@ augroup rb_augroup
 augroup END
 
 Plug 'tpope/vim-rails'
+Plug 'zchee/deoplete-jedi'
+Plug 'davidhalter/jedi'
 Plug 'cohama/lexima.vim'
 call plug#end()
 augroup fzf_augroup

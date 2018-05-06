@@ -17,6 +17,7 @@
   * [Deoplete (Auto complete)](#deoplete-auto-complete)
   * [Golang](#golang)
   * [Ruby](#ruby)
+  * [Python](#python)
   * [Lexima](#lexima)
   * [Initialize vim-plug](#initialize-vim-plug)
 * [Look and feel](#look-and-feel)
@@ -296,6 +297,14 @@ Plugin for Rails projects.
 Plug 'tpope/vim-rails'
 ```
 
+### Python
+https://github.com/zchee/deoplete-jedi
+https://github.com/davidhalter/jedi
+
+```vim
+Plug 'zchee/deoplete-jedi'
+Plug 'davidhalter/jedi'
+```
 ### Lexima
 
 Auto close parentheses and repeat by dot dot dot...
