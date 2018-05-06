@@ -14,6 +14,7 @@
   * [Bookmark](#bookmark)
   * [Git](#git-1)
   * [FZF](#fzf)
+  * [ghq](#ghq)
   * [Misc](#misc)
 
 <!-- vim-markdown-toc -->
@@ -145,6 +146,13 @@ Load fzf key-bindings file when it's ready.
 if [ -e "${GOPATH}/src/github.com/junegunn/fzf/shell/key-bindings.zsh" ]; then
   source "${GOPATH}/src/github.com/junegunn/fzf/shell/key-bindings.zsh"
 fi
+```
+
+### ghq
+https://github.com/motemen/ghq
+
+```zsh
+export GHQ_ROOT=$GOPATH/src
 ```
 
 ### Misc
