@@ -73,3 +73,10 @@ augroup go_augroup
   autocmd FileType go nmap <leader>p  :cprevious<CR>
   autocmd FileType go nmap <leader>j  <C-]>
 augroup END
+augroup python_augroup
+  autocmd!
+  " Use tab
+  autocmd FileType python nmap <leader>n  :cnext<CR>
+  autocmd FileType python nmap <leader>p  :cprevious<CR>
+  autocmd FileType python nmap <leader>j  <C-]>
+augroup END

@@ -24,6 +24,7 @@
   * [Fzf](#fzf-2)
   * [Markdown](#markdown-1)
   * [Golang](#golang-1)
+  * [Python](#python-1)
 * [Tips](#tips)
   * [Keybindings](#keybindings)
   * [How to check the filetype of the opened file.](#how-to-check-the-filetype-of-the-opened-file)
@@ -378,7 +379,16 @@ augroup go_augroup
 augroup END
 ```
 
-
+### Python
+```vim
+augroup python_augroup
+  autocmd!
+  " Use tab
+  autocmd FileType python nmap <leader>n  :cnext<CR>
+  autocmd FileType python nmap <leader>p  :cprevious<CR>
+  autocmd FileType python nmap <leader>j  <C-]>
+augroup END
+```
 
 ## Tips
 Links in this section might include pages in Japanese.
