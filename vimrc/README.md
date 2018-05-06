@@ -17,6 +17,7 @@
   * [Deoplete (Auto complete)](#deoplete-auto-complete)
   * [Golang](#golang)
   * [Ruby](#ruby)
+  * [Lexima](#lexima)
   * [Initialize vim-plug](#initialize-vim-plug)
 * [Look and feel](#look-and-feel)
   * [Fzf](#fzf-2)
@@ -294,6 +295,16 @@ Plugin for Rails projects.
 ```vim
 Plug 'tpope/vim-rails'
 ```
+
+### Lexima
+
+Auto close parentheses and repeat by dot dot dot...
+https://github.com/cohama/lexima.vim
+
+```vim
+Plug 'cohama/lexima.vim'
+```
+
 ### Initialize vim-plug
 
 Let vim-plug initialzie itself with the plugins above.
