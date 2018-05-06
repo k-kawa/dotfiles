@@ -68,4 +68,5 @@ augroup go_augroup
   autocmd FileType go nmap <leader>t  <Plug>(go-test)
   autocmd FileType go nmap <leader>n  :cnext<CR>
   autocmd FileType go nmap <leader>p  :cprevious<CR>
+  autocmd FileType go nmap <leader>j  <C-]>
 augroup END
