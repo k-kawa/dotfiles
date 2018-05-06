@@ -55,6 +55,7 @@ augroup md_augroup
   autocmd!
   " Disable folding.
   autocmd FileType markdown set nofoldenable
+  autocmd FileType markdown noremap <leader>t :Toc<CR>
 augroup END
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_follow_anchor = 1

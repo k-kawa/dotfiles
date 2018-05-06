@@ -326,6 +326,7 @@ augroup md_augroup
   autocmd!
   " Disable folding.
   autocmd FileType markdown set nofoldenable
+  autocmd FileType markdown noremap <leader>t :Toc<CR>
 augroup END
 ```
 
