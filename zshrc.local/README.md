@@ -55,6 +55,7 @@ eval "$(nodenv init -)"
 ```zsh
 export PATH=$PATH:/usr/local/go/bin:$HOME/r/bin
 export GOPATH=$HOME/r
+export GO111MODULE=on
 ```
 
 ### Git

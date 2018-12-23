@@ -9,6 +9,7 @@ export PATH="$NODENV_ROOT/bin:$PATH"
 eval "$(nodenv init -)"
 export PATH=$PATH:/usr/local/go/bin:$HOME/r/bin
 export GOPATH=$HOME/r
+export GO111MODULE=on
 alias gls='git ls-files -c -o --exclude-standard'
 function q_or_2() {          
   local o
