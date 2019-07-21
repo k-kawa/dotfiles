@@ -69,3 +69,7 @@ bind-key -n M-S-Right resize-pane -R
 bind-key -n F7 copy-mode
 ```
 
+
+```tmux
+set -g mouse on
+```
