@@ -9,6 +9,10 @@
   * [Python 3.5 and neovim](#python-35-and-neovim)
   * [fzf](#fzf)
 * [General](#general)
+  * [Assign `Space` key to the `leader` key.](#assign-space-key-to-the-leader-key)
+  * [Split window with Space ss and Space sv](#split-window-with-space-ss-and-space-sv)
+  * [Travel windows with Space s{hjkl}](#travel-windows-with-space-shjkl)
+  * [Toggle NERDTree with `<Space>f`.](#toggle-nerdtree-with-spacef)
 * [Plugins](#plugins)
   * [Markdown](#markdown)
   * [YAML](#yaml)
@@ -30,7 +34,7 @@
   * [How to check the filetype of the opened file.](#how-to-check-the-filetype-of-the-opened-file)
 
 <!-- vim-markdown-toc -->
- 
+
 ## What's this?
 
 This file is the source of my .vimrc file.
@@ -131,16 +135,33 @@ set wildmenu
 set wildmode=list:longest,full
 ```
 
-Assign `Space` key to the `leader` key.
+### Assign `Space` key to the `leader` key.
 
 ```vim
 let mapleader = "\<Space>"
 ```
 
-Toggle NERDTree with `F8`.
+### Split window with Space ss and Space sv
 
 ```vim
-nmap <F8> :NERDTreeToggle<CR>
+nmap <Leader>ss :split<Return><C-w>
+nmap <Leader>sv :vsplit<Return>
+```
+
+### Travel windows with Space s{hjkl}
+
+```vim
+nmap <Leader>sh <C-w>h
+nmap <Leader>sj <C-w>j
+nmap <Leader>sk <C-w>k
+nmap <Leader>sl <C-w>l
+
+```
+
+### Toggle NERDTree with `<Space>f`.
+
+```vim
+nmap <Leader>f :NERDTreeToggle<CR>
 ```
 
 Highlight matched texts.

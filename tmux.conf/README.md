@@ -3,6 +3,7 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Swich prefix key](#swich-prefix-key)
+* [Move panes in vim-like way](#move-panes-in-vim-like-way)
 * [Open a window/pane with `F2`](#open-a-windowpane-with-f2)
 * [Switch windows with `F3` and `F4`](#switch-windows-with-f3-and-f4)
 * [Switch panes with `M-arrow`](#switch-panes-with-m-arrow)
@@ -25,6 +26,16 @@ Use `C-q` as the prefix key.
 set -g prefix C-q
 ```
 
+## Move panes in vim-like way
+
+```tmux
+bind-key -r k select-pane -U
+bind-key -r j select-pane -D
+bind-key -r h select-pane -L
+bind-key -r l select-pane -R
+
+
+```
 ## Open a window/pane with `F2`
 
 - `F2`: open a new window.

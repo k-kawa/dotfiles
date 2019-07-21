@@ -6,7 +6,14 @@ set autowrite
 set wildmenu
 set wildmode=list:longest,full
 let mapleader = "\<Space>"
-nmap <F8> :NERDTreeToggle<CR>
+nmap <Leader>ss :split<Return><C-w>
+nmap <Leader>sv :vsplit<Return>
+nmap <Leader>sh <C-w>h
+nmap <Leader>sj <C-w>j
+nmap <Leader>sk <C-w>k
+nmap <Leader>sl <C-w>l
+
+nmap <Leader>f :NERDTreeToggle<CR>
 set hlsearch
 set incsearch
 set ignorecase
