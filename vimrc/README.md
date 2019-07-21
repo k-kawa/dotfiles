@@ -15,6 +15,7 @@
   * [Toggle NERDTree with `<Space>f`.](#toggle-nerdtree-with-spacef)
 * [Plugins](#plugins)
   * [Dart](#dart)
+    * [Enable DartFmt execution on buffer save.](#enable-dartfmt-execution-on-buffer-save)
   * [Markdown](#markdown)
   * [YAML](#yaml)
   * [NERDTree](#nerdtree)
@@ -207,8 +208,17 @@ https://github.com/thosakwe/vim-flutter
 
 ```vim
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
 Plug 'thosakwe/vim-flutter'
 ```
+
+#### Enable DartFmt execution on buffer save.
+
+```vim
+let dart_format_on_save = 1
+```
+
 ### Markdown
 
 Plugins to edit Markdown.
