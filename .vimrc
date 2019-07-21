@@ -22,6 +22,8 @@ nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>
 set noswapfile
 call plug#begin('~/.vim/plugged')
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'mzlogin/vim-markdown-toc'

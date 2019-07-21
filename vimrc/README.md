@@ -14,6 +14,7 @@
   * [Travel windows with Space s{hjkl}](#travel-windows-with-space-shjkl)
   * [Toggle NERDTree with `<Space>f`.](#toggle-nerdtree-with-spacef)
 * [Plugins](#plugins)
+  * [Dart](#dart)
   * [Markdown](#markdown)
   * [YAML](#yaml)
   * [NERDTree](#nerdtree)
@@ -201,6 +202,13 @@ Let vim-plug install the plugins in `~/.vim/plugged`.
 call plug#begin('~/.vim/plugged')
 ```
 
+### Dart
+https://github.com/thosakwe/vim-flutter
+
+```vim
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
+```
 ### Markdown
 
 Plugins to edit Markdown.
