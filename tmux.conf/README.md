@@ -4,11 +4,10 @@
 
 * [Swich prefix key](#swich-prefix-key)
 * [Move panes in vim-like way](#move-panes-in-vim-like-way)
-* [Open a window/pane with `F2`](#open-a-windowpane-with-f2)
-* [Switch windows with `F3` and `F4`](#switch-windows-with-f3-and-f4)
-* [Switch panes with `M-arrow`](#switch-panes-with-m-arrow)
-* [Resize panes with `M-S-arrow`](#resize-panes-with-m-s-arrow)
+* [vim-like copy mode](#vim-like-copy-mode)
+* [Resize panes in vim-like way](#resize-panes-in-vim-like-way)
 * [Start `copy-mode` with `F7`](#start-copy-mode-with-f7)
+* [Mouse](#mouse)
 
 <!-- vim-markdown-toc -->
 
@@ -33,45 +32,21 @@ bind-key -r k select-pane -U
 bind-key -r j select-pane -D
 bind-key -r h select-pane -L
 bind-key -r l select-pane -R
-
-
-```
-## Open a window/pane with `F2`
-
-- `F2`: open a new window.
-- `S-F2`: split the current window horizontally and open a new pane.
-- `C-F2`: split the current window vertically and open a new pane.
-
-```tmux
-bind-key -n F2 new-window -c "#{pane_current_path}" \; rename-window "-"
-
-bind-key -n C-F2 display-panes \; split-window -h -c "#{pane_current_path}"
-bind-key -n S-F2 display-panes \; split-window -v -c "#{pane_current_path}"
 ```
 
-## Switch windows with `F3` and `F4`
+## vim-like copy mode
 
 ```tmux
-bind-key -n F3 previous-window
-bind-key -n F4 next-window
+setw -g mode-keys vi
 ```
 
-## Switch panes with `M-arrow`
+## Resize panes in vim-like way
 
 ```tmux
-bind-key -n M-Up display-panes \; select-pane -U
-bind-key -n M-Down display-panes \; select-pane -D
-bind-key -n M-Left display-panes \; select-pane -L
-bind-key -n M-Right display-panes \; select-pane -R
-```
-
-## Resize panes with `M-S-arrow`
-
-```tmux
-bind-key -n M-S-Up resize-pane -U
-bind-key -n M-S-Down resize-pane -D
-bind-key -n M-S-Left resize-pane -L
-bind-key -n M-S-Right resize-pane -R
+bind-key -r K resize-pane -U 1
+bind-key -r J resize-pane -D 1
+bind-key -r H resize-pane -L 1
+bind-key -r L resize-pane -R 1
 ```
 
 ## Start `copy-mode` with `F7`
@@ -80,6 +55,7 @@ bind-key -n M-S-Right resize-pane -R
 bind-key -n F7 copy-mode
 ```
 
+## Mouse
 
 ```tmux
 set -g mouse on
