@@ -12,6 +12,7 @@ export GOPATH=$HOME/r
 export GO111MODULE=on
 export PATH="$PATH:$HOME/.pub-cache/bin"
 alias gls='git ls-files -c -o --exclude-standard'
+alias g='cd $(ghq root)/$(ghq list | peco)'
 function q_or_2() {          
   local o
   local f

@@ -10,6 +10,7 @@
   * [Golang](#golang)
   * [Flutter](#flutter)
   * [Git](#git)
+  * [peco + ghq](#peco--ghq)
   * [peco/fzf](#pecofzf)
   * [Vim](#vim)
   * [Bookmark](#bookmark)
@@ -74,6 +75,14 @@ export PATH="$PATH:$HOME/.pub-cache/bin"
 
 ```zsh
 alias gls='git ls-files -c -o --exclude-standard'
+```
+
+### peco + ghq
+
+`g` to change directories to one of the cloned git repositories maintained by `peco`
+
+```zsh
+alias g='cd $(ghq root)/$(ghq list | peco)'
 ```
 
 ### peco/fzf

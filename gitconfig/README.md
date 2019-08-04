@@ -13,3 +13,10 @@ My `user.name` is `Kohei Kawasaki`
 [user]
   name = Kohei Kawasaki
 ```
+
+[Ghq](https://github.com/motemen/ghq)'s root diretory is `$HOME/r/src`
+
+```ini
+[ghq]
+  root = "~/r/src"
+```
