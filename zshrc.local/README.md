@@ -8,6 +8,7 @@
   * [rbenv](#rbenv)
   * [nodenv](#nodenv)
   * [Golang](#golang)
+  * [Flutter](#flutter)
   * [Git](#git)
   * [peco/fzf](#pecofzf)
   * [Vim](#vim)
@@ -56,6 +57,14 @@ eval "$(nodenv init -)"
 export PATH=$PATH:/usr/local/go/bin:$HOME/r/bin
 export GOPATH=$HOME/r
 export GO111MODULE=on
+```
+
+### Flutter
+
+Add `$HOME/.pub-cache/bin` directory in the path.
+
+```zsh
+export PATH="$PATH:$HOME/.pub-cache/bin"
 ```
 
 ### Git
