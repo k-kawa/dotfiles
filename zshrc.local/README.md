@@ -3,6 +3,7 @@
 <!-- vim-markdown-toc GFM -->
 
 * [What's this?](#whats-this)
+* [Prerequisite](#prerequisite)
 * [Configurations](#configurations)
   * [pyenv](#pyenv)
   * [rbenv](#rbenv)
@@ -26,8 +27,15 @@
 This file is the source of my `.zshrc.local` file.
 Add `source ${HOME}/.zshrc.local` in your `.zshrc` to activate it.
 
+## Prerequisite
+The following environment variables should be set before `.zshrc.local` is read.
+
+| Name | Value |
+|--|--|
+| FLUTTER_HOME | the home directory of `flutter`. It's used to add its `bin` directory to `$PATH` variable. |
 
 ## Configurations
+
 ### pyenv
 
 ```zsh
@@ -65,7 +73,7 @@ export GO111MODULE=on
 Add `$HOME/.pub-cache/bin` directory in the path.
 
 ```zsh
-export PATH="$PATH:$HOME/.pub-cache/bin"
+export PATH="${PATH}:${FLUTTER_HOME}/bin:${FLUTTER_HOME}/.pub-cache/bin:${FLUTTER_HOME}/bin/cache/dart-sdk/bin"
 ```
 
 ### Git
@@ -187,3 +195,4 @@ Change key bindings with `xmodmap`
 ```zsh
 xmodmap ~/.Xmodmap
 ```
+

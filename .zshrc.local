@@ -10,7 +10,7 @@ eval "$(nodenv init -)"
 export PATH=$PATH:/usr/local/go/bin:$HOME/r/bin
 export GOPATH=$HOME/r
 export GO111MODULE=on
-export PATH="$PATH:$HOME/.pub-cache/bin"
+export PATH="${PATH}:${FLUTTER_HOME}/bin:${FLUTTER_HOME}/.pub-cache/bin:${FLUTTER_HOME}/bin/cache/dart-sdk/bin"
 alias gls='git ls-files -c -o --exclude-standard'
 alias g='cd $(ghq root)/$(ghq list | peco)'
 function q_or_2() {          
