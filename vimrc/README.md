@@ -208,8 +208,9 @@ https://github.com/thosakwe/vim-flutter
 
 ```vim
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
 Plug 'natebosch/vim-lsc'
-Plug 'natebosch/vim-lsc-dart'
 Plug 'thosakwe/vim-flutter'
 ```
 
@@ -294,6 +295,21 @@ https://github.com/zchee/deoplete-go
 
 ```vim
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+```
+
+Use `gpls` as a language server for golang.
+
+https://github.com/prabirshrestha/vim-lsp/wiki/Servers-Go
+
+```vim
+if executable('gopls')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'gopls',
+    \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
+    \ 'whitelist': ['go'],
+    \ })
+  autocmd BufWritePre *.go LspDocumentFormatSync
+endif
 ```
 
 ### Ruby

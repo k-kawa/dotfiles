@@ -23,8 +23,9 @@ nnoremap <S-Tab> :bp<CR>
 set noswapfile
 call plug#begin('~/.vim/plugged')
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
 Plug 'natebosch/vim-lsc'
-Plug 'natebosch/vim-lsc-dart'
 Plug 'thosakwe/vim-flutter'
 let dart_format_on_save = 1
 Plug 'godlygeek/tabular'
@@ -45,6 +46,14 @@ endif
 let g:deoplete#enable_at_startup = 1
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'zchee/deoplete-go', { 'do': 'make'}
+if executable('gopls')
+  au User lsp_setup call lsp#register_server({
+    \ 'name': 'gopls',
+    \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
+    \ 'whitelist': ['go'],
+    \ })
+  autocmd BufWritePre *.go LspDocumentFormatSync
+endif
 Plug 'vim-ruby/vim-ruby'
 Plug 'fishbullet/deoplete-ruby'
 Plug 'thoughtbot/vim-rspec'
