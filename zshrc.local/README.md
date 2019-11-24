@@ -3,7 +3,6 @@
 <!-- vim-markdown-toc GFM -->
 
 * [What's this?](#whats-this)
-* [Prerequisite](#prerequisite)
 * [Configurations](#configurations)
   * [pyenv](#pyenv)
   * [rbenv](#rbenv)
@@ -27,16 +26,16 @@
 This file is the source of my `.zshrc.local` file.
 Add `source ${HOME}/.zshrc.local` in your `.zshrc` to activate it.
 
-## Prerequisite
-The following environment variables should be set before `.zshrc.local` is read.
-
-| Name | Value |
-|--|--|
-| FLUTTER_HOME | the home directory of `flutter`. It's used to add its `bin` directory to `$PATH` variable. |
-
 ## Configurations
 
 ### pyenv
+
+Use `pytyon` installed by brew instead of the default one.
+https://stackoverflow.com/questions/49704364/make-python3-as-my-default-python-on-mac
+
+```zsh
+export PATH=/usr/local/opt/python/libexec/bin:$PATH
+```
 
 ```zsh
 export PYENV_ROOT="$HOME/.pyenv"
@@ -63,16 +62,17 @@ eval "$(nodenv init -)"
 ### Golang
 
 ```zsh
-export PATH=$PATH:/usr/local/go/bin:$HOME/r/bin
-export GOPATH=$HOME/r
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 export GO111MODULE=on
 ```
 
 ### Flutter
 
-Add `$HOME/.pub-cache/bin` directory in the path.
+Add `$HOME/.flutter/flutter/.bin` directory to PATH.
 
 ```zsh
+export FLUTTER_HOME="${HOME}/.flutter/flutter"
 export PATH="${PATH}:${FLUTTER_HOME}/bin:${FLUTTER_HOME}/.pub-cache/bin:${FLUTTER_HOME}/bin/cache/dart-sdk/bin"
 ```
 
@@ -122,7 +122,6 @@ alias fzfq='fzf --print-query | q_or_2'
 
 ### Vim
 ```zsh
-alias vim='mvim -v'
 alias v='vim $(ls | fzfq)'
 alias vdotfiles='pushd ~/dotfiles > /dev/null && vim $(gls | fzfq) && popd > /dev/null'
 alias vl='pushd ~/til > /dev/null && vim $(gls | fzfq) && git add . && git commit -m "update" && (git push origin master) & ; popd > /dev/null'

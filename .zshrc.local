@@ -1,3 +1,4 @@
+export PATH=/usr/local/opt/python/libexec/bin:$PATH
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
@@ -7,9 +8,10 @@ eval "$(rbenv init -)"
 export NODENV_ROOT="$HOME/.nodenv"
 export PATH="$NODENV_ROOT/bin:$PATH"
 eval "$(nodenv init -)"
-export PATH=$PATH:/usr/local/go/bin:$HOME/r/bin
-export GOPATH=$HOME/r
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 export GO111MODULE=on
+export FLUTTER_HOME="${HOME}/.flutter/flutter"
 export PATH="${PATH}:${FLUTTER_HOME}/bin:${FLUTTER_HOME}/.pub-cache/bin:${FLUTTER_HOME}/bin/cache/dart-sdk/bin"
 alias gls='git ls-files -c -o --exclude-standard'
 alias g='cd $(ghq root)/$(ghq list | peco)'
@@ -29,7 +31,6 @@ function q_or_2() {
 
 alias pecoq='peco --print-query | q_or_2'
 alias fzfq='fzf --print-query | q_or_2'
-alias vim='mvim -v'
 alias v='vim $(ls | fzfq)'
 alias vdotfiles='pushd ~/dotfiles > /dev/null && vim $(gls | fzfq) && popd > /dev/null'
 alias vl='pushd ~/til > /dev/null && vim $(gls | fzfq) && git add . && git commit -m "update" && (git push origin master) & ; popd > /dev/null'
