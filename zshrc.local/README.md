@@ -69,10 +69,10 @@ export GO111MODULE=on
 
 ### Flutter
 
-Add `$HOME/.flutter/flutter/.bin` directory to PATH.
+Add `$HOME/.dev_tools/flutter/.bin` directory to PATH.
 
 ```zsh
-export FLUTTER_HOME="${HOME}/.flutter/flutter"
+export FLUTTER_HOME="${HOME}/.dev_tools/flutter"
 export PATH="${PATH}:${FLUTTER_HOME}/bin:${FLUTTER_HOME}/.pub-cache/bin:${FLUTTER_HOME}/bin/cache/dart-sdk/bin"
 ```
 
