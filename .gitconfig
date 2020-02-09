@@ -1,6 +1,6 @@
 [core]
   editor = vim
 [user]
-  name = Kohei Kawasaki
+	name = Kohei Kawasaki
 [ghq]
-  root = "~/r/src"
+	root = "~/go/src"

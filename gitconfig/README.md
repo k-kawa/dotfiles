@@ -11,12 +11,12 @@ My `user.name` is `Kohei Kawasaki`
 
 ```ini
 [user]
-  name = Kohei Kawasaki
+	name = Kohei Kawasaki
 ```
 
-[Ghq](https://github.com/motemen/ghq)'s root diretory is `$HOME/r/src`
+[Ghq](https://github.com/motemen/ghq)'s root diretory is `$HOME/go/src`
 
 ```ini
 [ghq]
-  root = "~/r/src"
+	root = "~/go/src"
 ```
