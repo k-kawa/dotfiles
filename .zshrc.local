@@ -44,9 +44,11 @@ fbr() {
   branch=$(echo "$branches" | fzf +m) &&
   git checkout $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
 }
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 if [ -e "${GOPATH}/src/github.com/junegunn/fzf/shell/key-bindings.zsh" ]; then
   source "${GOPATH}/src/github.com/junegunn/fzf/shell/key-bindings.zsh"
 fi
 export GHQ_ROOT=$GOPATH/src
+export PATH=$PATH:$HOME/.local/bin
 stty ixany
 xmodmap ~/.Xmodmap

@@ -15,8 +15,10 @@
   * [Vim](#vim)
   * [Bookmark](#bookmark)
   * [Git](#git-1)
+  * [MySQL Client](#mysql-client)
   * [FZF](#fzf)
   * [ghq](#ghq)
+  * [Misc executables](#misc-executables)
   * [Misc](#misc)
 
 <!-- vim-markdown-toc -->
@@ -165,6 +167,12 @@ fbr() {
 }
 ```
 
+### MySQL Client
+```zsh
+export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+```
+
+
 ### FZF
 
 Load fzf key-bindings file when it's ready.
@@ -180,6 +188,12 @@ https://github.com/motemen/ghq
 
 ```zsh
 export GHQ_ROOT=$GOPATH/src
+```
+
+### Misc executables
+
+```zsh
+export PATH=$PATH:$HOME/.local/bin
 ```
 
 ### Misc
