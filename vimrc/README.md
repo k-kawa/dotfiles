@@ -14,13 +14,14 @@
   * [Travel windows with Space s{hjkl}](#travel-windows-with-space-shjkl)
   * [Toggle NERDTree with `<Space>f`.](#toggle-nerdtree-with-spacef)
 * [Plugins](#plugins)
+  * [LSP](#lsp)
+  * [Auto completion](#auto-completion)
   * [Dart](#dart)
     * [Enable DartFmt execution on buffer save.](#enable-dartfmt-execution-on-buffer-save)
   * [Markdown](#markdown)
   * [YAML](#yaml)
   * [NERDTree](#nerdtree)
   * [fzf](#fzf-1)
-  * [Deoplete (Auto complete)](#deoplete-auto-complete)
   * [Golang](#golang)
   * [Ruby](#ruby)
   * [Python](#python)
@@ -203,13 +204,36 @@ Let vim-plug install the plugins in `~/.vim/plugged`.
 call plug#begin('~/.vim/plugged')
 ```
 
+### LSP
+
+```vim
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
+nnoremap <Leader>d :LspDefinition<CR>
+nnoremap <Leader>r :LspReferences<CR>
+nnoremap <Leader>i :LspImplementation<CR>
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:asyncomplete_popup_delay = 200
+let g:lsp_text_edit_enabled = 0
+```
+
+### Auto completion
+
+```vim
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+set completeopt+=preview
+```
+
 ### Dart
 https://github.com/thosakwe/vim-flutter
 
 ```vim
 Plug 'dart-lang/dart-vim-plugin'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
 Plug 'natebosch/vim-lsc'
 Plug 'thosakwe/vim-flutter'
 ```
@@ -263,53 +287,11 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 ```
 
-### Deoplete (Auto complete)
-I love Deoplete!!
-
-```vim
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-let g:deoplete#enable_at_startup = 1
-```
 
 ### Golang
 
-Plugins to edit golang.
-
-`vim-go` integrates vim with Golang toolkits such as gofmt, errcheck etc.
-
 ```vim
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-```
-
-`vim-go`'s tutorial in Japanese is here. https://github.com/hnakamur/vim-go-tutorial-ja
-
-deoplete's plugin for Golang.
-https://github.com/zchee/deoplete-go
-
-```vim
-Plug 'zchee/deoplete-go', { 'do': 'make'}
-```
-
-Use `gpls` as a language server for golang.
-
-https://github.com/prabirshrestha/vim-lsp/wiki/Servers-Go
-
-```vim
-if executable('gopls')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'gopls',
-    \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
-    \ 'whitelist': ['go'],
-    \ })
-  autocmd BufWritePre *.go LspDocumentFormatSync
-endif
+Plug 'mattn/vim-goimports'
 ```
 
 ### Ruby
@@ -419,20 +401,6 @@ let g:vim_markdown_follow_anchor = 1
 ```
 
 ### Golang
-
-```vim
-augroup go_augroup
-  autocmd!
-  " Use tab
-  autocmd FileType go set noexpandtab
-  autocmd FileType go nmap <leader>b  <Plug>(go-build)
-  autocmd FileType go nmap <leader>r  <Plug>(go-run)
-  autocmd FileType go nmap <leader>t  <Plug>(go-test)
-  autocmd FileType go nmap <leader>n  :cnext<CR>
-  autocmd FileType go nmap <leader>p  :cprevious<CR>
-  autocmd FileType go nmap <leader>j  <C-]>
-augroup END
-```
 
 ### Python
 ```vim

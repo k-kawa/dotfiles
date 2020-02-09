@@ -22,9 +22,22 @@ nnoremap <Tab> :bn<CR>
 nnoremap <S-Tab> :bp<CR>
 set noswapfile
 call plug#begin('~/.vim/plugged')
-Plug 'dart-lang/dart-vim-plugin'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
+nnoremap <Leader>d :LspDefinition<CR>
+nnoremap <Leader>r :LspReferences<CR>
+nnoremap <Leader>i :LspImplementation<CR>
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:asyncomplete_popup_delay = 200
+let g:lsp_text_edit_enabled = 0
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+set completeopt+=preview
+Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'thosakwe/vim-flutter'
 let dart_format_on_save = 1
@@ -35,25 +48,7 @@ Plug 'stephpy/vim-yaml'
 Plug 'scrooloose/nerdtree'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-let g:deoplete#enable_at_startup = 1
-Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-Plug 'zchee/deoplete-go', { 'do': 'make'}
-if executable('gopls')
-  au User lsp_setup call lsp#register_server({
-    \ 'name': 'gopls',
-    \ 'cmd': {server_info->['gopls', '-mode', 'stdio']},
-    \ 'whitelist': ['go'],
-    \ })
-  autocmd BufWritePre *.go LspDocumentFormatSync
-endif
+Plug 'mattn/vim-goimports'
 Plug 'vim-ruby/vim-ruby'
 Plug 'fishbullet/deoplete-ruby'
 Plug 'thoughtbot/vim-rspec'
@@ -83,17 +78,6 @@ augroup md_augroup
 augroup END
 let g:vim_markdown_toc_autofit = 1
 let g:vim_markdown_follow_anchor = 1
-augroup go_augroup
-  autocmd!
-  " Use tab
-  autocmd FileType go set noexpandtab
-  autocmd FileType go nmap <leader>b  <Plug>(go-build)
-  autocmd FileType go nmap <leader>r  <Plug>(go-run)
-  autocmd FileType go nmap <leader>t  <Plug>(go-test)
-  autocmd FileType go nmap <leader>n  :cnext<CR>
-  autocmd FileType go nmap <leader>p  :cprevious<CR>
-  autocmd FileType go nmap <leader>j  <C-]>
-augroup END
 augroup python_augroup
   autocmd!
   " Use tab
