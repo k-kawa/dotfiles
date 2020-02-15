@@ -1,0 +1,790 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>dotfiles</title>
+        
+        <meta name="robots" content="noindex" />
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded "><a href="../index.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li><ol class="section"><li class="expanded "><a href="zshrc.local/index.html"><strong aria-hidden="true">1.1.</strong> zshrc.local</a></li><li class="expanded "><a href="vimrc/index.html"><strong aria-hidden="true">1.2.</strong> vimrc</a></li><li class="expanded "><a href="tmux.conf/index.html"><strong aria-hidden="true">1.3.</strong> tmuxrc.conf</a></li><li class="expanded "><a href="Xmodmap/index.html"><strong aria-hidden="true">1.4.</strong> Xmodmap</a></li><li class="expanded "><a href="gitconfig/index.html"><strong aria-hidden="true">1.5.</strong> gitconfig</a></li><li class="expanded "><a href="config/git/ignore/index.html"><strong aria-hidden="true">1.6.</strong> config/git/ignore</a></li><li class="expanded "><a href="tigrc/index.html"><strong aria-hidden="true">1.7.</strong> tigrc</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">dotfiles</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#dotfiles" id="dotfiles">dotfiles</a></h1>
+<!-- vim-markdown-toc GFM -->
+<ul>
+<li><a href="../index.html#whats-in-this-repository">What's in this repository?</a></li>
+<li><a href="../index.html#how-to-deploy-the-dot-files">How to deploy the dot files?</a></li>
+<li><a href="../index.html#prerequisites">Prerequisites</a></li>
+<li><a href="../index.html#tips">Tips</a></li>
+</ul>
+<!-- vim-markdown-toc -->
+<h2><a class="header" href="#whats-in-this-repository" id="whats-in-this-repository">What's in this repository?</a></h2>
+<p>Practical guide to maintain dotfiles in home direcotry (for me).</p>
+<p>https://k-kawa.github.io/dotfiles/</p>
+<h2><a class="header" href="#how-to-deploy-the-dot-files" id="how-to-deploy-the-dot-files">How to deploy the dot files?</a></h2>
+<p>Run <code>make</code> command.</p>
+<p>See the <a href="https://github.com/k-kawa/dotfiles/blob/master/Makefile">Makefile</a> in the repository.</p>
+<h2><a class="header" href="#prerequisites" id="prerequisites">Prerequisites</a></h2>
+<h2><a class="header" href="#tips" id="tips">Tips</a></h2>
+<ul>
+<li>Use <code>:GenTocGFM</code> to make the TOC part.</li>
+<li>Use <code>:UpdateToc</code> to update it.</li>
+<li>List of available languages in fenced block is here. https://github.com/github/linguist/blob/master/lib/linguist/languages.yml</li>
+</ul>
+<h1><a class="header" href="#zshrclocal" id="zshrclocal">.zshrc.local</a></h1>
+<!-- vim-markdown-toc GFM -->
+<ul>
+<li><a href="zshrc.local/index.html#whats-this">What's this?</a></li>
+<li><a href="zshrc.local/index.html#configurations">Configurations</a>
+<ul>
+<li><a href="zshrc.local/index.html#pyenv">pyenv</a></li>
+<li><a href="zshrc.local/index.html#rbenv">rbenv</a></li>
+<li><a href="zshrc.local/index.html#nodenv">nodenv</a></li>
+<li><a href="zshrc.local/index.html#golang">Golang</a></li>
+<li><a href="zshrc.local/index.html#rust">Rust</a></li>
+<li><a href="zshrc.local/index.html#flutter">Flutter</a></li>
+<li><a href="zshrc.local/index.html#git">Git</a></li>
+<li><a href="zshrc.local/index.html#peco--ghq">peco + ghq</a></li>
+<li><a href="zshrc.local/index.html#pecofzf">peco/fzf</a></li>
+<li><a href="zshrc.local/index.html#vim">Vim</a></li>
+<li><a href="zshrc.local/index.html#bookmark">Bookmark</a></li>
+<li><a href="zshrc.local/index.html#git-1">Git</a></li>
+<li><a href="zshrc.local/index.html#mysql-client">MySQL Client</a></li>
+<li><a href="zshrc.local/index.html#fzf">FZF</a></li>
+<li><a href="zshrc.local/index.html#ghq">ghq</a></li>
+<li><a href="zshrc.local/index.html#misc-executables">Misc executables</a></li>
+<li><a href="zshrc.local/index.html#misc">Misc</a></li>
+</ul>
+</li>
+</ul>
+<!-- vim-markdown-toc -->
+<h2><a class="header" href="#whats-this" id="whats-this">What's this?</a></h2>
+<p>This file is the source of my <code>.zshrc.local</code> file.
+Add <code>source ${HOME}/.zshrc.local</code> in your <code>.zshrc</code> to activate it.</p>
+<h2><a class="header" href="#configurations" id="configurations">Configurations</a></h2>
+<h3><a class="header" href="#pyenv" id="pyenv">pyenv</a></h3>
+<p>Use <code>pytyon</code> installed by brew instead of the default one.
+https://stackoverflow.com/questions/49704364/make-python3-as-my-default-python-on-mac</p>
+<pre><code class="language-zsh">export PATH=/usr/local/opt/python/libexec/bin:$PATH
+</code></pre>
+<pre><code class="language-zsh">export PYENV_ROOT=&quot;$HOME/.pyenv&quot;
+export PATH=&quot;$PYENV_ROOT/bin:$PATH&quot;
+eval &quot;$(pyenv init -)&quot;
+</code></pre>
+<h3><a class="header" href="#rbenv" id="rbenv">rbenv</a></h3>
+<pre><code class="language-zsh">export RBENV_ROOT=&quot;$HOME/.rbenv&quot;
+export PATH=&quot;$RBENV_ROOT/bin:$PATH&quot;
+eval &quot;$(rbenv init -)&quot;
+</code></pre>
+<h3><a class="header" href="#nodenv" id="nodenv">nodenv</a></h3>
+<pre><code class="language-zsh">export NODENV_ROOT=&quot;$HOME/.nodenv&quot;
+export PATH=&quot;$NODENV_ROOT/bin:$PATH&quot;
+eval &quot;$(nodenv init -)&quot;
+</code></pre>
+<h3><a class="header" href="#golang" id="golang">Golang</a></h3>
+<pre><code class="language-zsh">export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+export GO111MODULE=on
+</code></pre>
+<h3><a class="header" href="#rust" id="rust">Rust</a></h3>
+<pre><code class="language-zsh">export PATH=$PATH:$HOME/.cargo/bin
+</code></pre>
+<h3><a class="header" href="#flutter" id="flutter">Flutter</a></h3>
+<p>Add <code>$HOME/.dev_tools/flutter/.bin</code> directory to PATH.</p>
+<pre><code class="language-zsh">export FLUTTER_HOME=&quot;${HOME}/.dev_tools/flutter&quot;
+export PATH=&quot;${PATH}:${FLUTTER_HOME}/bin:${FLUTTER_HOME}/.pub-cache/bin:${FLUTTER_HOME}/bin/cache/dart-sdk/bin&quot;
+</code></pre>
+<h3><a class="header" href="#git" id="git">Git</a></h3>
+<p><code>gls</code> to list all the files in the working diretory respecting <code>.gitignore</code>.
+<a href="https://git-scm.com/docs/git-ls-files">Man of <code>git ls-files</code></a></p>
+<pre><code class="language-zsh">alias gls='git ls-files -c -o --exclude-standard'
+</code></pre>
+<h3><a class="header" href="#peco--ghq" id="peco--ghq">peco + ghq</a></h3>
+<p><code>g</code> to change directories to one of the cloned git repositories maintained by <code>peco</code></p>
+<pre><code class="language-zsh">alias g='cd $(ghq root)/$(ghq list | peco)'
+</code></pre>
+<h3><a class="header" href="#pecofzf" id="pecofzf">peco/fzf</a></h3>
+<p><code>q_or_2</code> is the function such that ...</p>
+<ul>
+<li>when the first line of the given text from stdin ends with <code>!</code>, it returns the line without the following last <code>!</code> </li>
+<li>otherwise it returns the second line.</li>
+</ul>
+<p>This function is useful when it is piped after <code>peco/fzf --print-query</code> command.</p>
+<pre><code class="language-zsh">function q_or_2() {          
+  local o
+  local f
+  o=$(cat -)
+
+  # Extract str leading of ?
+  f=$(echo $o | head -n 1 | sed -n -E 's/^([^?]*)!\s*/\1/gp')
+  if [ &quot;$f&quot; != &quot;&quot; ]; then
+    echo $f 
+  else
+    echo $o | sed -n '2p'
+  fi
+}
+
+alias pecoq='peco --print-query | q_or_2'
+alias fzfq='fzf --print-query | q_or_2'
+</code></pre>
+<h3><a class="header" href="#vim" id="vim">Vim</a></h3>
+<pre><code class="language-zsh">alias v='vim $(ls | fzfq)'
+alias vdotfiles='pushd ~/dotfiles &gt; /dev/null &amp;&amp; vim $(gls | fzfq) &amp;&amp; popd &gt; /dev/null'
+alias vl='pushd ~/til &gt; /dev/null &amp;&amp; vim $(gls | fzfq) &amp;&amp; git add . &amp;&amp; git commit -m &quot;update&quot; &amp;&amp; (git push origin master) &amp; ; popd &gt; /dev/null'
+</code></pre>
+<h3><a class="header" href="#bookmark" id="bookmark">Bookmark</a></h3>
+<p><code>bm</code> to bookmark the current working directory.</p>
+<pre><code class="language-zsh">alias bm='echo &quot;${PWD}&quot; &gt;&gt; ~/.bookmarks'
+</code></pre>
+<p><code>cdb</code> to list bookmarks and move to one of them.</p>
+<pre><code class="language-zsh">alias cdb='cd $(cat ~/.bookmarks | sort | uniq | sed -e &quot;/^#/d&quot; | sed -e &quot;/^\s*$/d&quot; | fzfq)'
+</code></pre>
+<p><code>vbm</code> to start vim to edit the bookmarks.</p>
+<pre><code class="language-zsh">alias vbm='vim ~/.bookmarks'
+</code></pre>
+<h3><a class="header" href="#git-1" id="git-1">Git</a></h3>
+<p><code>cdg</code> to move repositories managed in GOPATH.</p>
+<pre><code class="language-zsh">alias cdg='cd &quot;${GOPATH}/src&quot;/$(find ${GOPATH}/src -maxdepth 3 -mindepth 3 -type d | sed -re &quot;s/^.*?\/(.*\/.*\/.*)$/\1/g&quot; | fzfq)'
+</code></pre>
+<p><code>fbr</code> to list and switch branches.</p>
+<pre><code class="language-zsh">fbr() {
+  local branches branch
+  branches=$(git branch -vv) &amp;&amp;
+  branch=$(echo &quot;$branches&quot; | fzf +m) &amp;&amp;
+  git checkout $(echo &quot;$branch&quot; | awk '{print $1}' | sed &quot;s/.* //&quot;)
+}
+</code></pre>
+<h3><a class="header" href="#mysql-client" id="mysql-client">MySQL Client</a></h3>
+<pre><code class="language-zsh">export PATH=&quot;/usr/local/opt/mysql-client/bin:$PATH&quot;
+</code></pre>
+<h3><a class="header" href="#fzf" id="fzf">FZF</a></h3>
+<p>Load fzf key-bindings file when it's ready.</p>
+<pre><code class="language-zsh">if [ -e &quot;${GOPATH}/src/github.com/junegunn/fzf/shell/key-bindings.zsh&quot; ]; then
+  source &quot;${GOPATH}/src/github.com/junegunn/fzf/shell/key-bindings.zsh&quot;
+fi
+</code></pre>
+<h3><a class="header" href="#ghq" id="ghq">ghq</a></h3>
+<p>https://github.com/motemen/ghq</p>
+<pre><code class="language-zsh">export GHQ_ROOT=$GOPATH/src
+</code></pre>
+<h3><a class="header" href="#misc-executables" id="misc-executables">Misc executables</a></h3>
+<pre><code class="language-zsh">export PATH=$PATH:$HOME/.local/bin
+</code></pre>
+<h3><a class="header" href="#misc" id="misc">Misc</a></h3>
+<p>Deactivate screen lock (C-s)</p>
+<pre><code class="language-zsh">stty ixany
+</code></pre>
+<p>Change key bindings with <code>xmodmap</code></p>
+<pre><code class="language-zsh">xmodmap ~/.Xmodmap
+</code></pre>
+<h1><a class="header" href="#vimrc" id="vimrc">.vimrc</a></h1>
+<!-- vim-markdown-toc GFM -->
+<ul>
+<li><a href="vimrc/index.html#whats-this">What's this?</a></li>
+<li><a href="vimrc/index.html#prerequisite">Prerequisite</a>
+<ul>
+<li><a href="vimrc/index.html#vim-8">Vim 8</a></li>
+<li><a href="vimrc/index.html#vim-plug">vim-plug</a></li>
+<li><a href="vimrc/index.html#python-35-and-neovim">Python 3.5 and neovim</a></li>
+<li><a href="vimrc/index.html#fzf">fzf</a></li>
+</ul>
+</li>
+<li><a href="vimrc/index.html#general">General</a>
+<ul>
+<li><a href="vimrc/index.html#assign-space-key-to-the-leader-key">Assign <code>Space</code> key to the <code>leader</code> key.</a></li>
+<li><a href="vimrc/index.html#split-window-with-space-ss-and-space-sv">Split window with Space ss and Space sv</a></li>
+<li><a href="vimrc/index.html#travel-windows-with-space-shjkl">Travel windows with Space s{hjkl}</a></li>
+<li><a href="vimrc/index.html#toggle-nerdtree-with-spacef">Toggle NERDTree with <code>&lt;Space&gt;f</code>.</a></li>
+</ul>
+</li>
+<li><a href="vimrc/index.html#plugins">Plugins</a>
+<ul>
+<li><a href="vimrc/index.html#lsp">LSP</a></li>
+<li><a href="vimrc/index.html#auto-completion">Auto completion</a></li>
+<li><a href="vimrc/index.html#dart">Dart</a>
+<ul>
+<li><a href="vimrc/index.html#enable-dartfmt-execution-on-buffer-save">Enable DartFmt execution on buffer save.</a></li>
+</ul>
+</li>
+<li><a href="vimrc/index.html#markdown">Markdown</a></li>
+<li><a href="vimrc/index.html#yaml">YAML</a></li>
+<li><a href="vimrc/index.html#nerdtree">NERDTree</a></li>
+<li><a href="vimrc/index.html#fzf-1">fzf</a></li>
+<li><a href="vimrc/index.html#golang">Golang</a></li>
+<li><a href="vimrc/index.html#ruby">Ruby</a></li>
+<li><a href="vimrc/index.html#python">Python</a></li>
+<li><a href="vimrc/index.html#lexima">Lexima</a></li>
+<li><a href="vimrc/index.html#initialize-vim-plug">Initialize vim-plug</a></li>
+</ul>
+</li>
+<li><a href="vimrc/index.html#look-and-feel">Look and feel</a>
+<ul>
+<li><a href="vimrc/index.html#fzf-2">Fzf</a></li>
+<li><a href="vimrc/index.html#markdown-1">Markdown</a></li>
+<li><a href="vimrc/index.html#golang-1">Golang</a></li>
+<li><a href="vimrc/index.html#python-1">Python</a></li>
+</ul>
+</li>
+<li><a href="vimrc/index.html#tips">Tips</a>
+<ul>
+<li><a href="vimrc/index.html#keybindings">Keybindings</a></li>
+<li><a href="vimrc/index.html#how-to-check-the-filetype-of-the-opened-file">How to check the filetype of the opened file.</a></li>
+</ul>
+</li>
+</ul>
+<!-- vim-markdown-toc -->
+<h2><a class="header" href="#whats-this-1" id="whats-this-1">What's this?</a></h2>
+<p>This file is the source of my .vimrc file.</p>
+<h2><a class="header" href="#prerequisite" id="prerequisite">Prerequisite</a></h2>
+<h3><a class="header" href="#vim-8" id="vim-8">Vim 8</a></h3>
+<p>I recently started to use Vim 8 and found it super!!
+Here's the script to install it in Ubuntu 16.04</p>
+<pre><code class="language-sh">sudo add-apt-repository ppa:jonathonf/vim
+sudo apt update
+sudo apt install vim
+sudo apt install ppa-purge &amp;&amp; sudo ppa-purge ppa:jonathonf/vim
+</code></pre>
+<p>The script above is copied from 
+http://tipsonubuntu.com/2016/09/13/vim-8-0-released-install-ubuntu-16-04/</p>
+<h3><a class="header" href="#vim-plug" id="vim-plug">vim-plug</a></h3>
+<p>This .vimrc uses <a href="https://github.com/junegunn/vim-plug">vim-plug</a> to install vim plugins so that I need to run the following command in advance.</p>
+<pre><code class="language-sh">curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+</code></pre>
+<h3><a class="header" href="#python-35-and-neovim" id="python-35-and-neovim">Python 3.5 and neovim</a></h3>
+<p><code>neovim</code>, whichi is the Python module of vim client, is required by <code>deoplete</code> plugin.</p>
+<p>Python 3.5 is registerted in apt packages.</p>
+<pre><code class="language-sh">sudo apt-get install python3 python3-pip
+</code></pre>
+<p><code>neovim</code> is installable by <code>pip</code> or <code>pip3</code> command.</p>
+<pre><code class="language-sh">sudo pip3 install neovim
+</code></pre>
+<p>I tried to use Python installed by <code>pyenv</code> at first but gave up after several minutes struggling.
+I uses the default system Python now.</p>
+<h3><a class="header" href="#fzf-1" id="fzf-1">fzf</a></h3>
+<p><a href="https://github.com/junegunn/fzf"><code>fzf</code></a> is a command-line fuzzy finder which is available from vim with its vim plugin.</p>
+<p><code>fzf</code> is easy to install with <code>go get</code> command (as far as you've installed <code>go</code>)</p>
+<pre><code class="language-sh">go get github.com/junegunn/fzf
+</code></pre>
+<h2><a class="header" href="#general" id="general">General</a></h2>
+<p>Use spaces instead of tab.</p>
+<pre><code class="language-vim">set expandtab
+</code></pre>
+<p>Show 2 spaces for each tab.
+This conf is useful especially when I write Golang.</p>
+<pre><code class="language-vim">set tabstop=2
+</code></pre>
+<p>Use 2 spaces for each indent.</p>
+<pre><code class="language-vim">set shiftwidth=2
+</code></pre>
+<p>Show line numbers.</p>
+<pre><code class="language-vim">set number
+</code></pre>
+<p>Save files automatically.</p>
+<pre><code class="language-vim">set autowrite
+</code></pre>
+<p>In <code>Tab</code> typed, show the list of matches and complete the longest common part.
+In <code>Tab</code> tabyped again, select the first match, the second match etc. </p>
+<pre><code class="language-vim">set wildmenu
+set wildmode=list:longest,full
+</code></pre>
+<h3><a class="header" href="#assign-space-key-to-the-leader-key" id="assign-space-key-to-the-leader-key">Assign <code>Space</code> key to the <code>leader</code> key.</a></h3>
+<pre><code class="language-vim">let mapleader = &quot;\&lt;Space&gt;&quot;
+</code></pre>
+<h3><a class="header" href="#split-window-with-space-ss-and-space-sv" id="split-window-with-space-ss-and-space-sv">Split window with Space ss and Space sv</a></h3>
+<pre><code class="language-vim">nmap &lt;Leader&gt;ss :split&lt;Return&gt;&lt;C-w&gt;
+nmap &lt;Leader&gt;sv :vsplit&lt;Return&gt;
+</code></pre>
+<h3><a class="header" href="#travel-windows-with-space-shjkl" id="travel-windows-with-space-shjkl">Travel windows with Space s{hjkl}</a></h3>
+<pre><code class="language-vim">nmap &lt;Leader&gt;sh &lt;C-w&gt;h
+nmap &lt;Leader&gt;sj &lt;C-w&gt;j
+nmap &lt;Leader&gt;sk &lt;C-w&gt;k
+nmap &lt;Leader&gt;sl &lt;C-w&gt;l
+
+</code></pre>
+<h3><a class="header" href="#toggle-nerdtree-with-spacef" id="toggle-nerdtree-with-spacef">Toggle NERDTree with <code>&lt;Space&gt;f</code>.</a></h3>
+<pre><code class="language-vim">nmap &lt;Leader&gt;f :NERDTreeToggle&lt;CR&gt;
+</code></pre>
+<p>Highlight matched texts.</p>
+<pre><code class="language-vim">set hlsearch
+</code></pre>
+<p>Activate incremental search.</p>
+<pre><code class="language-vim">set incsearch
+</code></pre>
+<p>Ignore the difference of cases until I use both lower/upper case characters in search.</p>
+<pre><code class="language-vim">set ignorecase
+set smartcase
+</code></pre>
+<p>Switch buffers with <code>&lt;TAB&gt;</code></p>
+<pre><code class="language-vim">nnoremap &lt;Tab&gt; :bn&lt;CR&gt;
+nnoremap &lt;S-Tab&gt; :bp&lt;CR&gt;
+</code></pre>
+<p>Disable swp file</p>
+<pre><code class="language-vim">set noswapfile
+</code></pre>
+<h2><a class="header" href="#plugins" id="plugins">Plugins</a></h2>
+<p>Let vim-plug install the plugins in <code>~/.vim/plugged</code>.</p>
+<pre><code class="language-vim">call plug#begin('~/.vim/plugged')
+</code></pre>
+<h3><a class="header" href="#lsp" id="lsp">LSP</a></h3>
+<pre><code class="language-vim">Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+
+nnoremap &lt;Leader&gt;d :LspDefinition&lt;CR&gt;
+nnoremap &lt;Leader&gt;r :LspReferences&lt;CR&gt;
+nnoremap &lt;Leader&gt;i :LspImplementation&lt;CR&gt;
+let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:asyncomplete_popup_delay = 200
+let g:lsp_text_edit_enabled = 0
+</code></pre>
+<h3><a class="header" href="#auto-completion" id="auto-completion">Auto completion</a></h3>
+<pre><code class="language-vim">Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+set completeopt+=preview
+</code></pre>
+<h3><a class="header" href="#dart" id="dart">Dart</a></h3>
+<p>https://github.com/thosakwe/vim-flutter</p>
+<pre><code class="language-vim">Plug 'dart-lang/dart-vim-plugin'
+Plug 'natebosch/vim-lsc'
+Plug 'thosakwe/vim-flutter'
+</code></pre>
+<h4><a class="header" href="#enable-dartfmt-execution-on-buffer-save" id="enable-dartfmt-execution-on-buffer-save">Enable DartFmt execution on buffer save.</a></h4>
+<pre><code class="language-vim">let dart_format_on_save = 1
+</code></pre>
+<h3><a class="header" href="#markdown" id="markdown">Markdown</a></h3>
+<p>Plugins to edit Markdown.
+https://github.com/plasticboy/vim-markdown</p>
+<pre><code class="language-vim">Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+</code></pre>
+<p>Plugin to generate TOC of a markdown file.
+https://github.com/mzlogin/vim-markdown-toc</p>
+<pre><code class="language-vim">Plug 'mzlogin/vim-markdown-toc'
+</code></pre>
+<h3><a class="header" href="#yaml" id="yaml">YAML</a></h3>
+<p>Plugin to edit YAML files.</p>
+<pre><code class="language-vim">Plug 'stephpy/vim-yaml'
+</code></pre>
+<h3><a class="header" href="#nerdtree" id="nerdtree">NERDTree</a></h3>
+<p>https://github.com/scrooloose/nerdtree</p>
+<pre><code class="language-vim">Plug 'scrooloose/nerdtree'
+</code></pre>
+<h3><a class="header" href="#fzf-2" id="fzf-2">fzf</a></h3>
+<ul>
+<li>https://github.com/junegunn/fzf/blob/master/README-VIM.md</li>
+<li>https://github.com/junegunn/fzf.vim</li>
+</ul>
+<pre><code class="language-vim">Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+</code></pre>
+<h3><a class="header" href="#golang-1" id="golang-1">Golang</a></h3>
+<pre><code class="language-vim">Plug 'mattn/vim-goimports'
+</code></pre>
+<h3><a class="header" href="#ruby" id="ruby">Ruby</a></h3>
+<p>Plugins to edit Ruby.</p>
+<p><code>vim-ruby</code>'s document is here. https://github.com/vim-ruby/vim-ruby/wiki </p>
+<pre><code class="language-vim">Plug 'vim-ruby/vim-ruby'
+</code></pre>
+<p>deoplete's plugin for Ruby.
+https://github.com/fishbullet/deoplete-ruby</p>
+<pre><code class="language-vim">Plug 'fishbullet/deoplete-ruby'
+</code></pre>
+<p>Plugin to run rspec via vim.
+https://github.com/thoughtbot/vim-rspec</p>
+<pre><code class="language-vim">Plug 'thoughtbot/vim-rspec'
+</code></pre>
+<pre><code class="language-vim">augroup rb_augroup
+  autocmd!
+  autocmd FileType ruby nmap &lt;Leader&gt;t :call RunAllSpecs()&lt;CR&gt;
+  autocmd FileType ruby nmap &lt;Leader&gt;tt :call RunCurrentSpecFile()&lt;CR&gt;
+  autocmd FileType ruby nmap &lt;Leader&gt;tl :call RunLastSpec()&lt;CR&gt;
+  autocmd FileType ruby nmap &lt;Leader&gt;tn :call RunNearestSpec()&lt;CR&gt;
+augroup END
+
+</code></pre>
+<p>Plugin for Rails projects.</p>
+<pre><code class="language-vim">Plug 'tpope/vim-rails'
+</code></pre>
+<h3><a class="header" href="#python" id="python">Python</a></h3>
+<p>https://github.com/zchee/deoplete-jedi
+https://github.com/davidhalter/jedi</p>
+<pre><code class="language-vim">Plug 'zchee/deoplete-jedi'
+Plug 'davidhalter/jedi'
+</code></pre>
+<h3><a class="header" href="#lexima" id="lexima">Lexima</a></h3>
+<p>Auto close parentheses and repeat by dot dot dot...
+https://github.com/cohama/lexima.vim</p>
+<pre><code class="language-vim">Plug 'cohama/lexima.vim'
+</code></pre>
+<h3><a class="header" href="#initialize-vim-plug" id="initialize-vim-plug">Initialize vim-plug</a></h3>
+<p>Let vim-plug initialzie itself with the plugins above.</p>
+<pre><code class="language-vim">call plug#end()
+</code></pre>
+<p>Now that I can install/update the plugins with <code>:PluginInstall</code> command.</p>
+<h2><a class="header" href="#look-and-feel" id="look-and-feel">Look and feel</a></h2>
+<h3><a class="header" href="#fzf-3" id="fzf-3">Fzf</a></h3>
+<p>Run <code>Files</code> with <code>e</code>.</p>
+<pre><code class="language-vim">augroup fzf_augroup
+  autocmd!
+  noremap e :Files&lt;CR&gt;
+  noremap &lt;leader&gt;e :GFiles -c -o --exclude-standard&lt;CR&gt;
+augroup END
+</code></pre>
+<h3><a class="header" href="#markdown-1" id="markdown-1">Markdown</a></h3>
+<pre><code class="language-vim">augroup md_augroup
+  autocmd!
+  &quot; Disable folding.
+  autocmd FileType markdown set nofoldenable
+  autocmd FileType markdown noremap &lt;leader&gt;t :Toc&lt;CR&gt;
+augroup END
+</code></pre>
+<p>Enable TOC window auto-fit.</p>
+<pre><code class="language-vim">let g:vim_markdown_toc_autofit = 1
+</code></pre>
+<p>Follow named anchors.</p>
+<pre><code class="language-vim">let g:vim_markdown_follow_anchor = 1
+</code></pre>
+<h3><a class="header" href="#golang-2" id="golang-2">Golang</a></h3>
+<h3><a class="header" href="#python-1" id="python-1">Python</a></h3>
+<pre><code class="language-vim">augroup python_augroup
+  autocmd!
+  &quot; Use tab
+  autocmd FileType python nmap &lt;leader&gt;n  :cnext&lt;CR&gt;
+  autocmd FileType python nmap &lt;leader&gt;p  :cprevious&lt;CR&gt;
+  autocmd FileType python nmap &lt;leader&gt;j  &lt;C-]&gt;
+augroup END
+</code></pre>
+<h2><a class="header" href="#tips-1" id="tips-1">Tips</a></h2>
+<p>Links in this section might include pages in Japanese.</p>
+<h3><a class="header" href="#keybindings" id="keybindings">Keybindings</a></h3>
+<ul>
+<li>http://vim-jp.org/vimdoc-ja/map.html</li>
+<li>https://cocopon.me/blog/2013/10/vim-map-noremap/</li>
+</ul>
+<h3><a class="header" href="#how-to-check-the-filetype-of-the-opened-file" id="how-to-check-the-filetype-of-the-opened-file">How to check the filetype of the opened file.</a></h3>
+<pre><code>verbose set filetype?
+</code></pre>
+<h1><a class="header" href="#tmuxconf" id="tmuxconf">.tmux.conf</a></h1>
+<!-- vim-markdown-toc GFM -->
+<ul>
+<li><a href="tmux.conf/index.html#swich-prefix-key">Swich prefix key</a></li>
+<li><a href="tmux.conf/index.html#move-panes-in-vim-like-way">Move panes in vim-like way</a></li>
+<li><a href="tmux.conf/index.html#vim-like-copy-mode">vim-like copy mode</a></li>
+<li><a href="tmux.conf/index.html#resize-panes-in-vim-like-way">Resize panes in vim-like way</a></li>
+<li><a href="tmux.conf/index.html#start-copy-mode-with-f7">Start <code>copy-mode</code> with <code>F7</code></a></li>
+<li><a href="tmux.conf/index.html#mouse">Mouse</a></li>
+</ul>
+<!-- vim-markdown-toc -->
+<h2><a class="header" href="#swich-prefix-key" id="swich-prefix-key">Swich prefix key</a></h2>
+<p>Cancel keybindings for <code>C-b</code>, the default.</p>
+<pre><code class="language-tmux">unbind C-b
+</code></pre>
+<p>Use <code>C-q</code> as the prefix key.</p>
+<pre><code class="language-tmux">set -g prefix C-q
+</code></pre>
+<h2><a class="header" href="#move-panes-in-vim-like-way" id="move-panes-in-vim-like-way">Move panes in vim-like way</a></h2>
+<pre><code class="language-tmux">bind-key -r k select-pane -U
+bind-key -r j select-pane -D
+bind-key -r h select-pane -L
+bind-key -r l select-pane -R
+</code></pre>
+<h2><a class="header" href="#vim-like-copy-mode" id="vim-like-copy-mode">vim-like copy mode</a></h2>
+<pre><code class="language-tmux">setw -g mode-keys vi
+</code></pre>
+<h2><a class="header" href="#resize-panes-in-vim-like-way" id="resize-panes-in-vim-like-way">Resize panes in vim-like way</a></h2>
+<pre><code class="language-tmux">bind-key -r K resize-pane -U 1
+bind-key -r J resize-pane -D 1
+bind-key -r H resize-pane -L 1
+bind-key -r L resize-pane -R 1
+</code></pre>
+<h2><a class="header" href="#start-copy-mode-with-f7" id="start-copy-mode-with-f7">Start <code>copy-mode</code> with <code>F7</code></a></h2>
+<pre><code class="language-tmux">bind-key -n F7 copy-mode
+</code></pre>
+<h2><a class="header" href="#mouse" id="mouse">Mouse</a></h2>
+<pre><code class="language-tmux">set -g mouse on
+</code></pre>
+<h1><a class="header" href="#xmodmap" id="xmodmap">.Xmodmap</a></h1>
+<h2><a class="header" href="#whats-this-2" id="whats-this-2">What's this?</a></h2>
+<h2><a class="header" href="#configuration" id="configuration">Configuration</a></h2>
+<p>Regard <code>Henkan</code> as <code>Escape</code></p>
+<pre><code class="language-xmodmap">keycode 100 = Escape
+</code></pre>
+<p>Regard <code>Muhenkan</code> and <code>Kana</code> keys as <code>Space</code></p>
+<pre><code class="language-xmodmap">keycode 101 = space
+keycode 102 = space
+</code></pre>
+<h2><a class="header" href="#how-to-check-the-keycode" id="how-to-check-the-keycode">How to check the keycode.</a></h2>
+<p>Use <code>xev</code> command.</p>
+<p><code>xev</code> command opens a small window which captures and dumps all the occurred events including <code>KeyPress</code> events each of which has keycode property.</p>
+<p>You can see logs like below when you type <code>Space</code> key.</p>
+<pre><code>KeyPress event, serial 37, synthetic NO, window 0x3c00001,
+  ...
+  state 0x0, keycode 65 (keysym 0x20, space), same_screen YES,
+  ...
+</code></pre>
+<p>The log says that the keycode of <code>Space</code> key is 65.</p>
+<h2><a class="header" href="#how-to-check-the-current-keycode-mapping" id="how-to-check-the-current-keycode-mapping">How to check the current keycode mapping</a></h2>
+<pre><code class="language-sh">xmodmap -pke
+</code></pre>
+<h1><a class="header" href="#tips-2" id="tips-2">Tips</a></h1>
+<ul>
+<li>http://bearmini.hatenablog.com/entry/2013/07/12/161637</li>
+<li></li>
+</ul>
+<h1><a class="header" href="#gitconfig" id="gitconfig">.gitconfig</a></h1>
+<p>Use <code>vim</code> to edit commit logs.</p>
+<pre><code class="language-ini">[core]
+  editor = vim
+</code></pre>
+<p>My <code>user.name</code> is <code>Kohei Kawasaki</code></p>
+<pre><code class="language-ini">[user]
+	name = Kohei Kawasaki
+</code></pre>
+<p><a href="https://github.com/motemen/ghq">Ghq</a>'s root diretory is <code>$HOME/go/src</code></p>
+<pre><code class="language-ini">[ghq]
+	root = &quot;~/go/src&quot;
+</code></pre>
+<h1><a class="header" href="#configgitignore" id="configgitignore">.config/git/ignore</a></h1>
+<h2><a class="header" href="#vim-1" id="vim-1">Vim</a></h2>
+<pre><code class="language-text"># Swap
+*.swp
+
+# Session
+Session.vim
+
+# Temporary
+.netrwhist
+*~
+
+# Auto-generated tag files
+tags
+</code></pre>
+<h2><a class="header" href="#emacs" id="emacs">Emacs</a></h2>
+<pre><code class="language-text">.projectile
+.\#*
+</code></pre>
+<h1><a class="header" href="#tigrc" id="tigrc">.tigrc</a></h1>
+<!-- vim-markdown-toc GFM -->
+<ul>
+<li><a href="tigrc/index.html#whats-this">What's this?</a></li>
+<li><a href="tigrc/index.html#configuration">Configuration</a>
+<ul>
+<li><a href="tigrc/index.html#rebase">Rebase</a></li>
+</ul>
+</li>
+</ul>
+<!-- vim-markdown-toc -->
+<h2><a class="header" href="#whats-this-3" id="whats-this-3">What's this?</a></h2>
+<p>This file is the source of my .tigrc.</p>
+<p><a href="https://github.com/jonas/tig">tig</a> is a interactive cli-base interface of git.</p>
+<h2><a class="header" href="#configuration-1" id="configuration-1">Configuration</a></h2>
+<h3><a class="header" href="#rebase" id="rebase">Rebase</a></h3>
+<p>Start <code>git rebase</code> by typing <code>R</code> in tig's log view.
+Very easy to specify the starting commit to rebase.</p>
+<pre><code class="language-tig">bind main R !git rebase -i %(commit)
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
