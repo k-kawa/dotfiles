@@ -8,6 +8,7 @@
   * [rbenv](#rbenv)
   * [nodenv](#nodenv)
   * [Golang](#golang)
+  * [Rust](#rust)
   * [Flutter](#flutter)
   * [Git](#git)
   * [peco + ghq](#peco--ghq)
@@ -67,6 +68,12 @@ eval "$(nodenv init -)"
 export GOPATH=$HOME/go
 export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
 export GO111MODULE=on
+```
+
+### Rust 
+
+```zsh
+export PATH=$PATH:$HOME/.cargo/bin
 ```
 
 ### Flutter
