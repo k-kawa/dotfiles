@@ -3,6 +3,7 @@
 all:
 	@make build
 	@make install
+	@make book
 
 build:
 	bin/filter-all
@@ -10,4 +11,5 @@ build:
 install:
 	bin/ln-all
 
-
+book:
+	mdbook build --dest-dir docs
