@@ -1,4 +1,5 @@
 #! /bin/bash
+
 function mkdir_and_ln() {
    local dn=$(dirname "$2")
    mkdir -p "$dn"
@@ -6,11 +7,12 @@ function mkdir_and_ln() {
    ln -sf "$1" "$2"
 }
 
-mkdir_and_ln ~/dotfiles/.vimrc ~/.vimrc
-mkdir_and_ln ~/dotfiles/.tmux.conf ~/.tmux.conf
-mkdir_and_ln ~/dotfiles/.gitconfig ~/.gitconfig
-mkdir_and_ln ~/dotfiles/.zshrc.local ~/.zshrc.local
-mkdir_and_ln ~/dotfiles/.config/git/ignore ~/.config/git/ignore 
-mkdir_and_ln ~/dotfiles/.Xmodmap ~/.Xmodmap
-mkdir_and_ln ~/dotfiles/.tigrc ~/.tigrc
+dest_dir="dest"
+mkdir_and_ln "$(pwd)/${dest_dir}"/.vimrc ~/.vimrc
+mkdir_and_ln "$(pwd)/${dest_dir}"/.tmux.conf ~/.tmux.conf
+mkdir_and_ln "$(pwd)/${dest_dir}"/.gitconfig ~/.gitconfig
+mkdir_and_ln "$(pwd)/${dest_dir}"/.zshrc.local ~/.zshrc.local
+mkdir_and_ln "$(pwd)/${dest_dir}"/.config/git/ignore ~/.config/git/ignore
+mkdir_and_ln "$(pwd)/${dest_dir}"/.Xmodmap ~/.Xmodmap
+mkdir_and_ln "$(pwd)/${dest_dir}"/.tigrc ~/.tigrc
 

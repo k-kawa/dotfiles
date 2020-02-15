@@ -1,17 +1,21 @@
 #! /bin/bash
-
 function template() {
+
+  # The first header line should be filename.
   local fn=$(cat "$2" | grep '#' | head -n 1 | awk '{print $2}')
-  local dn=$(dirname "${fn}")
 
-  mkdir -p "${dn}"
-  bin/filter "$1" "$2" > "${fn}"
+  local dest="dest"
+  local dest_dir="$dest/$(dirname "${fn}")"
+
+  mkdir -p "${dest_dir}"
+  bin/filter "$1" "$2" > "${dest}/${fn}"
 }
+src_dir="src"
 
-template vim vimrc/README.md
-template tmux tmux.conf/README.md
-template ini gitconfig/README.md
-template zsh zshrc.local/README.md
-template text config/git/ignore/README.md
-template xmodmap Xmodmap/README.md
-template tig tigrc/README.md
+template vim "${src_dir}"/vimrc/README.md
+template tmux "${src_dir}"/tmux.conf/README.md
+template ini "${src_dir}"/gitconfig/README.md
+template zsh "${src_dir}"/zshrc.local/README.md
+template text "${src_dir}"/config/git/ignore/README.md
+template xmodmap "${src_dir}"/Xmodmap/README.md
+template tig "${src_dir}"/tigrc/README.md
