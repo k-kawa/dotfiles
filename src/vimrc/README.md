@@ -16,6 +16,7 @@
 * [Plugins](#plugins)
   * [LSP](#lsp)
   * [Auto completion](#auto-completion)
+  * [Auto formatter](#auto-formatter)
   * [Dart](#dart)
     * [Enable DartFmt execution on buffer save.](#enable-dartfmt-execution-on-buffer-save)
   * [Markdown](#markdown)
@@ -23,6 +24,7 @@
   * [NERDTree](#nerdtree)
   * [fzf](#fzf-1)
   * [Golang](#golang)
+  * [Typescript](#typescript)
   * [Ruby](#ruby)
   * [Python](#python)
   * [Lexima](#lexima)
@@ -229,6 +231,11 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 set completeopt+=preview
 ```
 
+### Auto formatter
+
+```vim
+Plug 'chiel92/vim-autoformat'
+```
 ### Dart
 https://github.com/thosakwe/vim-flutter
 
@@ -292,6 +299,17 @@ Plug 'junegunn/fzf.vim'
 
 ```vim
 Plug 'mattn/vim-goimports'
+```
+
+### Typescript
+https://github.com/pangloss/vim-javascript
+https://github.com/leafgarland/typescript-vim
+
+```vim
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'ryanolsonx/vim-lsp-typescript'
 ```
 
 ### Ruby
