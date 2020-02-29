@@ -52,4 +52,6 @@ fi
 export GHQ_ROOT=$GOPATH/src
 export PATH=$PATH:$HOME/.local/bin
 stty ixany
-xmodmap ~/.Xmodmap
+if which xmodmap > /dev/null; then
+  xmodmap ~/.Xmodmap
+fi

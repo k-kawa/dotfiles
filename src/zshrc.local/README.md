@@ -213,6 +213,8 @@ stty ixany
 Change key bindings with `xmodmap`
 
 ```zsh
-xmodmap ~/.Xmodmap
+if which xmodmap > /dev/null; then
+  xmodmap ~/.Xmodmap
+fi
 ```
 

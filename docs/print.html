@@ -316,7 +316,9 @@ fi
 <pre><code class="language-zsh">stty ixany
 </code></pre>
 <p>Change key bindings with <code>xmodmap</code></p>
-<pre><code class="language-zsh">xmodmap ~/.Xmodmap
+<pre><code class="language-zsh">if which xmodmap &gt; /dev/null; then
+  xmodmap ~/.Xmodmap
+fi
 </code></pre>
 <h1><a class="header" href="#vimrc" id="vimrc">.vimrc</a></h1>
 <!-- vim-markdown-toc GFM -->
